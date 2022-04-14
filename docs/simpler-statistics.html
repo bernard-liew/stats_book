@@ -1,0 +1,3009 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Simpler statistics | Statistics done ALMOST right - an SPSS syntax recipe book</title>
+  <meta name="description" content="Chapter 4 Simpler statistics | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Simpler statistics | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/images/cover_image.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Simpler statistics | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  
+  
+  <meta name="twitter:image" content="/images/cover_image.png" />
+
+<meta name="author" content="Bernard Liew" />
+
+
+<meta name="date" content="2022-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exploration.html"/>
+<link rel="next" href="tougher-statistics.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<script src="libs/font-awesome-5.13.0/js/script.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics done ALMOST right - an SPSS syntax recipe book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#where-did-this-book-come-from"><i class="fa fa-check"></i><b>1.1</b> Where did this book come from?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-this-book-offers"><i class="fa fa-check"></i><b>1.2</b> What this book offers?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#who-this-book-isnt-for"><i class="fa fa-check"></i><b>1.3</b> Who this book isn’t for?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="cleaning-data.html"><a href="cleaning-data.html"><i class="fa fa-check"></i><b>2</b> Cleaning data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe1"><i class="fa fa-check"></i><b>2.1</b> Recipe 1 - Paste to syntax</a></li>
+<li class="chapter" data-level="2.2" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe2"><i class="fa fa-check"></i><b>2.2</b> Recipe 2 - Setting your work directory</a></li>
+<li class="chapter" data-level="2.3" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe3"><i class="fa fa-check"></i><b>2.3</b> Recipe 3 - Importing data</a></li>
+<li class="chapter" data-level="2.4" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe4"><i class="fa fa-check"></i><b>2.4</b> Recipe 4 - Rename columns</a></li>
+<li class="chapter" data-level="2.5" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe5"><i class="fa fa-check"></i><b>2.5</b> Recipe 5 - Filter rows</a></li>
+<li class="chapter" data-level="2.6" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe6"><i class="fa fa-check"></i><b>2.6</b> Recipe 6 - Create new variables</a></li>
+<li class="chapter" data-level="2.7" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe7"><i class="fa fa-check"></i><b>2.7</b> Recipe 7 - Group by function</a></li>
+<li class="chapter" data-level="2.8" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe8"><i class="fa fa-check"></i><b>2.8</b> Recipe 8 - Aggregate data</a></li>
+<li class="chapter" data-level="2.9" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe9"><i class="fa fa-check"></i><b>2.9</b> Recipe 9 - Long to wide</a></li>
+<li class="chapter" data-level="2.10" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe10"><i class="fa fa-check"></i><b>2.10</b> Recipe 10 - Wide to long</a></li>
+<li class="chapter" data-level="2.11" data-path="cleaning-data.html"><a href="cleaning-data.html#conclusion"><i class="fa fa-check"></i><b>2.11</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploration.html"><a href="exploration.html"><i class="fa fa-check"></i><b>3</b> Exploration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="exploration.html"><a href="exploration.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.1</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exploration.html"><a href="exploration.html#what-your-data-needs-to-look-like"><i class="fa fa-check"></i><b>3.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exploration.html"><a href="exploration.html#syntax"><i class="fa fa-check"></i><b>3.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="exploration.html"><a href="exploration.html#qq-plot"><i class="fa fa-check"></i><b>3.2</b> QQ plot</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="exploration.html"><a href="exploration.html#syntax-1"><i class="fa fa-check"></i><b>3.2.1</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="simpler-statistics.html"><a href="simpler-statistics.html"><i class="fa fa-check"></i><b>4</b> Simpler statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#onettest"><i class="fa fa-check"></i><b>4.1</b> One-sample t test</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-1"><i class="fa fa-check"></i><b>4.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-2"><i class="fa fa-check"></i><b>4.1.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.1.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent"><i class="fa fa-check"></i><b>4.1.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#twottest"><i class="fa fa-check"></i><b>4.2</b> Independent t-test</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-2"><i class="fa fa-check"></i><b>4.2.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-3"><i class="fa fa-check"></i><b>4.2.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.2.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent-1"><i class="fa fa-check"></i><b>4.2.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#pairedttest"><i class="fa fa-check"></i><b>4.3</b> Paired t-test</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-3"><i class="fa fa-check"></i><b>4.3.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-4"><i class="fa fa-check"></i><b>4.3.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.3.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent-2"><i class="fa fa-check"></i><b>4.3.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="simpler-statistics.html"><a href="simpler-statistics.html#oneBetwtest"><i class="fa fa-check"></i><b>4.4</b> One-way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-4"><i class="fa fa-check"></i><b>4.4.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-5"><i class="fa fa-check"></i><b>4.4.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="simpler-statistics.html"><a href="simpler-statistics.html#oneWithtest"><i class="fa fa-check"></i><b>4.5</b> One-way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-5"><i class="fa fa-check"></i><b>4.5.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-6"><i class="fa fa-check"></i><b>4.5.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="simpler-statistics.html"><a href="simpler-statistics.html#corr"><i class="fa fa-check"></i><b>4.6</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-6"><i class="fa fa-check"></i><b>4.6.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-7"><i class="fa fa-check"></i><b>4.6.2</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tougher-statistics.html"><a href="tougher-statistics.html"><i class="fa fa-check"></i><b>5</b> Tougher statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#twoBetwtest"><i class="fa fa-check"></i><b>5.1</b> Two (or more) way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-7"><i class="fa fa-check"></i><b>5.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.1.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-8"><i class="fa fa-check"></i><b>5.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#twoWithtest"><i class="fa fa-check"></i><b>5.2</b> Two (or more) way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-8"><i class="fa fa-check"></i><b>5.2.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-9"><i class="fa fa-check"></i><b>5.2.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tougher-statistics.html"><a href="tougher-statistics.html#RManovatest"><i class="fa fa-check"></i><b>5.3</b> Repeated (within-between) measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-9"><i class="fa fa-check"></i><b>5.3.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-10"><i class="fa fa-check"></i><b>5.3.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tougher-statistics.html"><a href="tougher-statistics.html#lmmtest"><i class="fa fa-check"></i><b>5.4</b> Linear mixed model</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-10"><i class="fa fa-check"></i><b>5.4.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-11"><i class="fa fa-check"></i><b>5.4.2</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>6</b> Reporting</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reporting.html"><a href="reporting.html#report-onettest"><i class="fa fa-check"></i><b>6.1</b> One-sample t test</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="reporting.html"><a href="reporting.html#reporting-1"><i class="fa fa-check"></i><b>6.1.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="reporting.html"><a href="reporting.html#report-twottest"><i class="fa fa-check"></i><b>6.2</b> Independent t-test</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="reporting.html"><a href="reporting.html#reporting-2"><i class="fa fa-check"></i><b>6.2.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="reporting.html"><a href="reporting.html#report-pairedttest"><i class="fa fa-check"></i><b>6.3</b> Paired t-test</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="reporting.html"><a href="reporting.html#reporting-3"><i class="fa fa-check"></i><b>6.3.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="reporting.html"><a href="reporting.html#report-oneBetwtest"><i class="fa fa-check"></i><b>6.4</b> One-way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="reporting.html"><a href="reporting.html#reporting-4"><i class="fa fa-check"></i><b>6.4.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="reporting.html"><a href="reporting.html#report-oneWithtest"><i class="fa fa-check"></i><b>6.5</b> One-way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="reporting.html"><a href="reporting.html#reporting-5"><i class="fa fa-check"></i><b>6.5.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="reporting.html"><a href="reporting.html#report-corr"><i class="fa fa-check"></i><b>6.6</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="reporting.html"><a href="reporting.html#reporting-6"><i class="fa fa-check"></i><b>6.6.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="reporting.html"><a href="reporting.html#report-twoBetwtest"><i class="fa fa-check"></i><b>6.7</b> Two (or more) way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="reporting.html"><a href="reporting.html#reporting-7"><i class="fa fa-check"></i><b>6.7.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="reporting.html"><a href="reporting.html#report-twoWithtest"><i class="fa fa-check"></i><b>6.8</b> Two (or more) way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="reporting.html"><a href="reporting.html#reporting-8"><i class="fa fa-check"></i><b>6.8.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="reporting.html"><a href="reporting.html#report-RManovatest"><i class="fa fa-check"></i><b>6.9</b> Repeated (within-between) measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="reporting.html"><a href="reporting.html#reporting-9"><i class="fa fa-check"></i><b>6.9.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="reporting.html"><a href="reporting.html#report-lmmtest"><i class="fa fa-check"></i><b>6.10</b> Linear mixed model</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="reporting.html"><a href="reporting.html#reporting-10"><i class="fa fa-check"></i><b>6.10.1</b> Reporting</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics done ALMOST right - an SPSS syntax recipe book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simpler-statistics" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Simpler statistics</h1>
+<div id="onettest" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> One-sample t test</h2>
+<p><strong>Hypothesis</strong> Is the ankle torque of my sample really different from 60 Nm/kg?</p>
+<div id="what-your-data-needs-to-look-like-1" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+atorq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+74.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+53.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+71.96875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+79.50916
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+99.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+84.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+115.90625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+89.68750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+67.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+79.31250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+75.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+88.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+86.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+111.46875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+76.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+73.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+98.71875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+92.03125
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+94.34375
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+101.71875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+56.34375
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-2" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>/VARIABLES</code>: Change the value <code>atorq</code> to the name of your dependent variable</p></li>
+<li><p><code>/TESTVAL</code>: Change the value to the mean you want to compare it against. In this example, I am asking <em>is my ankle torque of my sample really different from 0?</em></p></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="simpler-statistics.html#cb12-1" aria-hidden="true" tabindex="-1"></a>T<span class="sc">-</span>TEST</span>
+<span id="cb12-2"><a href="simpler-statistics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>TESTVAL<span class="ot">=</span><span class="dv">60</span></span>
+<span id="cb12-3"><a href="simpler-statistics.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING<span class="ot">=</span>ANALYSIS</span>
+<span id="cb12-4"><a href="simpler-statistics.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>VARIABLES<span class="ot">=</span>atorq</span>
+<span id="cb12-5"><a href="simpler-statistics.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ES <span class="fu">DISPLAY</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb12-6"><a href="simpler-statistics.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">CI</span>(.<span class="dv">95</span>).</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-onettest">6.1</a>.</p>
+</div>
+<div id="non-parametric-equivalent" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Non parametric equivalent</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li>Change the value <code>atorq</code> to the name of your dependent variable</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="simpler-statistics.html#cb13-1" aria-hidden="true" tabindex="-1"></a>NPTESTS </span>
+<span id="cb13-2"><a href="simpler-statistics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ONESAMPLE <span class="fu">TEST</span> (atorq) </span>
+<span id="cb13-3"><a href="simpler-statistics.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING SCOPE<span class="ot">=</span>ANALYSIS USERMISSING<span class="ot">=</span>EXCLUDE</span>
+<span id="cb13-4"><a href="simpler-statistics.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA ALPHA<span class="ot">=</span><span class="fl">0.05</span> CILEVEL<span class="ot">=</span><span class="dv">95</span>  SEED<span class="ot">=</span>RANDOM.</span></code></pre></div>
+</div>
+</div>
+<div id="twottest" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Independent t-test</h2>
+<p><strong>Hypothesis</strong> Is the ankle torque from one group different from a separate group?</p>
+<div id="what-your-data-needs-to-look-like-2" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+atorq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+74.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+53.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+71.96875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+79.50916
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+99.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+84.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+115.90625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+89.68750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+67.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+79.31250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+75.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+88.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+86.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+111.46875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+76.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+73.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+98.71875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+92.03125
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+94.34375
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+101.71875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+56.34375
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-3" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>GROUPS</code>: Change the variable <code>group</code> to the name of your independent grouping variable. Also change <code>G</code> and <code>T</code> to the names of the levels within the grouping variable</p></li>
+<li><p><code>/VARIABLES</code>: Change <code>atorq</code> to the name of your dependent variable.</p></li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="simpler-statistics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>T<span class="sc">-</span>TEST GROUPS<span class="ot">=</span><span class="fu">group</span>(<span class="st">&#39;G&#39;</span> <span class="st">&#39;T&#39;</span>)</span>
+<span id="cb14-2"><a href="simpler-statistics.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING<span class="ot">=</span>ANALYSIS</span>
+<span id="cb14-3"><a href="simpler-statistics.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>VARIABLES<span class="ot">=</span>atorq</span>
+<span id="cb14-4"><a href="simpler-statistics.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ES <span class="fu">DISPLAY</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb14-5"><a href="simpler-statistics.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">CI</span>(.<span class="dv">95</span>).</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-twottest">6.2</a>.</p>
+</div>
+<div id="non-parametric-equivalent-1" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Non parametric equivalent</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li>Change the value <code>atorq</code> to the name of your dependent variable, and <code>group</code> to the name of your independent variable.</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="simpler-statistics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>NPTESTS </span>
+<span id="cb15-2"><a href="simpler-statistics.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INDEPENDENT <span class="fu">TEST</span> (atorq) <span class="fu">GROUP</span> (group) </span>
+<span id="cb15-3"><a href="simpler-statistics.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING SCOPE<span class="ot">=</span>ANALYSIS USERMISSING<span class="ot">=</span>EXCLUDE</span>
+<span id="cb15-4"><a href="simpler-statistics.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA ALPHA<span class="ot">=</span><span class="fl">0.05</span>  CILEVEL<span class="ot">=</span><span class="fl">95.</span></span></code></pre></div>
+</div>
+</div>
+<div id="pairedttest" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Paired t-test</h2>
+<p><strong>Hypothesis</strong> Is the ankle torque in the same group of subjects different after compared to before a training program?</p>
+<div id="what-your-data-needs-to-look-like-3" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+POST
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PRE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+79.8750
+</td>
+<td style="text-align:right;">
+68.3750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+61.3750
+</td>
+<td style="text-align:right;">
+46.5000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+98.8750
+</td>
+<td style="text-align:right;">
+62.8750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+98.5625
+</td>
+<td style="text-align:right;">
+70.2500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+131.3750
+</td>
+<td style="text-align:right;">
+100.4375
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+74.8750
+</td>
+<td style="text-align:right;">
+75.5625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+98.4375
+</td>
+<td style="text-align:right;">
+73.5625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+86.2500
+</td>
+<td style="text-align:right;">
+66.1875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+103.0625
+</td>
+<td style="text-align:right;">
+81.0000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+123.2500
+</td>
+<td style="text-align:right;">
+65.4375
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,UEsDBBQAAAAIAAAAIQA4nYbYPgEAAAcEAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbK2Ty27DIBBF9/0KxLYyJF1UVRUniz6WbRbpB1AYxygYEDNJk78vtpNIrdI8lG6MzNy55w6C0WTdOLaChDb4kg/FgDPwOhjr5yX/mL0WD5whKW+UCx5KvgHkk/HNaLaJgCw3eyx5TRQfpURdQ6NQhAg+V6qQGkX5N81lVHqh5iDvBoN7qYMn8FRQ68HHo2eo1NIRe1nn7T5IAoecPfXCllVyFaOzWlGuy5U3vyjFliByZ6fB2ka8zQIuDxLayt+Abd97PplkDbCpSvSmmqySJuhpChFl1ovjLgdihqqyGrLHssktAtpABkwRsyUksrDPfJStQ4LL4bszarvPJK6dRNo4wKtHxZhAGawBqHGiNz1BpnyfoP8Or+Z3NieAXyEtPkNY/Pew7SoaZf0Z/E6Msluun/pnkL3/Lofs3vH4G1BLAwQUAAAACAAAACEA8p9J2ukAAABLAgAACwAAAF9yZWxzLy5yZWxzrZLBTsMwDEDvfEXk+5puSAihpbsgpN0mND7AJG4btY2jxIPu74mQQAyNaQeOceznZ8vrzTyN6o1S9hwMLKsaFAXLzofOwMv+aXEPKgsGhyMHMnCkDJvmZv1MI0qpyb2PWRVIyAZ6kfigdbY9TZgrjhTKT8tpQinP1OmIdsCO9Kqu73T6yYDmhKm2zkDauiWo/THSNWxuW2/pke1hoiBnWvzKKGRMHYmBedTvnIZX5qEqUNDnXVbXu/w9p55I0KGgtpxoEVOpTuLLWr91HNtdCefPjEtCt/+5HJqFgiN3WQlj/DLSJzfQfABQSwMEFAAAAAgAAAAhAOVEG6PVAAAALAIAABoAAAB4bC9fcmVscy93b3JrYm9vay54bWwucmVsc62Rz4oCMQyH7z5FyX0nMwoiYsfLsuBV9AFKJ/MHZ9rSZHedt7couiuIePAUfgn58kFW6+PQqx+K3HmnochyUOSsrzrXaNjvvj4WoFiMq0zvHWkYiWFdTlZb6o2kHW67wCpBHGtoRcISkW1Lg+HMB3JpUvs4GEkxNhiMPZiGcJrnc4z/GVDeMdWm0hA3VQFqNwZ6he3rurP06e33QE4enMBfHw/cEkmCmtiQaLi1GM+lyBIV8LHM9J0yknbpT+QcL82nDrN3OrCMfXroTeKSr+fx7snlCVBLAwQUAAAACAAAACEAVahQ/z4CAABQBgAAGAAAAHhsL3dvcmtzaGVldHMvc2hlZXQxLnhtbI2VTXObMBCG7/0VGt0LEh8CezCZxGmmPXSaidPeZRCGBiRGku3231cgTA2201480r67j3ZX1pLc/WpqcGBSVYKvIHYQBIxnIq/4bgW/vz59jCFQmvKc1oKzFfzNFLxLPyRHId9UyZgGBsDVCpZat0vXVVnJGqoc0TJulELIhmqzlTtXtZLRvA9qatdDiLgNrTi0hKX8H4YoiipjjyLbN4xrC5Gsptqkr8qqVTBN8spoXT1AsmIF7/FyjTF006Q/+kfFjupsDTTdbljNMs1y0wAIusq2Qrx14hdjQl2oexH71Gf1LEHOCrqv9Ys4fmbVrtQGEo6nPVJN00SKI5A9XPW/2V5p0VhCZ0iTrNPvRwdjrXhdcbbR0qiVOVSnar/9mbjaJNPt3WyIeng/6vnb5vVK1PofUS+fpkGuqWEsxBsz7laHFCfu4Twja40WThyFU2ltJRI7/pk0gfsj3O99vRncWgmeECzcSgFxbqCDER1YzxnaWhfxlbytRLyJNIGHIzy05c/g4QkeEm9OHyKQ492AkxFOetd4BrdW7F/ryqAh5AQ3mx6N/Mh6z7tuzVFwpTWDFE4Lm+DjER9b/IzxEJ+aE1zmb7XIf4e/GPkLy58335pj4ly03iqEOPjmzWL094Ui+59EM/5gx8h30OX1DmqMb/DPJgC2/PmLGuzY8y8rGDQSXrtf92wMtXTHvlK5q7gCNSvMw0dOBIG0U6tfa9H2qxCCrdBmSJ12pRndTHY7H4JCCH3adMNx/BikfwBQSwMEFAAAAAgAAAAhAIMYaiVIAQAAJgIAAA8AAAB4bC93b3JrYm9vay54bWyNUctOwzAQvPMV1t5pHmojWjWpxEtUQoBEac8m3jRWHTuyHdL+PetUKXDjtDPj3dHOerk6Nop9oXXS6BySSQwMdWmE1PscPjaP1zfAnOdacGU05nBCB6viatkbe/g05sBoXrscau/bRRS5ssaGu4lpUdNLZWzDPVG7j1xrkQtXI/pGRWkcZ1HDpYazw8L+x8NUlSzx3pRdg9qfTSwq7ml7V8vWQbGspMLtORDjbfvCG1r7qIAp7vyDkB5FDlOipsc/gu3a206qQGbxDKLiEvLNMoEV75Tf0GqjO50rnaZpFjpD11Zi736GAmXHndTC9DmkU7rsaWTJDFg/4J0UviYhi+cX7QnlvvY5zLMsDubRL/fhfmNlegj3HnBC/xTqmvYnbBeSgF2LZHAYx0quSkoTytCYTmfJHFjVKXVH2qt+NnwwCENjkuIbUEsDBBQAAAAIAAAAIQA/2O8hsQUAAFMbAAATAAAAeGwvdGhlbWUvdGhlbWUxLnhtbO1ZTY/TRhi+8ytGvoPjxA7ZFVm0ySbQwsJqN1BxnNgTe8jYY81MdsmtgmOlSlVp1Uul3nqo2iKB1Av9NdtStVTiL/T1R5LxZrJkYasWQQ6JZ/y83x9+x7ly9UHM0CERkvKkbTmXahYiic8DmoRt686gf7FlIalwEmDGE9K2pkRaV7cuXMGbKiIxQUCeyE3ctiKl0k3blj5sY3mJpySBeyMuYqxgKUI7EPgI2MbMrtdqTTvGNLFQgmPgens0oj5Bg4yltTVj3mPwlSiZbfhMHPi5RJ0ixwZjJ/uRU9llAh1i1rZATsCPBuSBshDDUsGNtlXLP5a9dcWeEzG1glaj6+efkq4kCMb1nE6Ewzmh03c3Lu/M+dcL/su4Xq/X7TlzfjkA+z5Y6ixh3X7L6cx4aqDicpl3t+bV3Cpe499Ywm90Oh1vo4JvLPDuEr5Va7rb9QreXeC9Zf07291us4L3FvjmEr5/eaPpVvE5KGI0GS+hs3jOIzOHjDi7boS3AN6aJcACZWvZVdAnalWuxfg+F30A5MHFiiZITVMywj7gujgeCoozAXiTYO1OseXLpa1MFpK+oKlqWx+nGCpiAXn1/MdXz5+iV8+fHD98dvzwl+NHj44f/mwgvI6TUCd8+f0Xf3/7Kfrr6XcvH39lxksd//tPn/3265dmoNKBL75+8sezJy+++fzPHx4b4NsCD3X4gMZEolvkCO3zGGwzCCBDcTaKQYRphQJHgDQAeyqqAG9NMTPhOqTqvLsCGoAJeG1yv6LrQSQmihqAN6K4AtzlnHW4MJpzI5OlmzNJQrNwMdFx+xgfmmR3T4S2N0khk6mJZTciFTX3GEQbhyQhCmX3+JgQA9k9Sit+3aW+4JKPFLpHUQdTo0sGdKjMRNdpDHGZmhSEUFd8s3sXdTgzsd8hh1UkFARmJpaEVdx4DU8Ujo0a45jpyJtYRSYlD6bCrzhcKoh0SBhHvYBIaaK5LaYVdW9g6ETGsO+yaVxFCkXHJuRNzLmO3OHjboTj1KgzTSId+5EcQ4pitMeVUQlerZBsDXHAycpw36VEna2s79AwMidIdmciyq5d6b8xTU5rxoxCN/7QjGfwbXg0mUriZAtehXsHG+8OniR7BHL9Q9/90Hffx767qpbX7baLBmvrc3HOL145JI8oYwdqyshNmbdmCUoHfdjMFznRfCZPI7gsxVVwocD5NRJcfUJVdBDhFMQ4uYRQlqxDiVIu4SRgreSdHycpGJ/vebMzIKCx2uVBsd3Qz4ZzNvkqlLqgRsZgXWGNy28nzCmAa0pzPLM071RptuZNqAaEs4O/06wXoiFjMCNB5veCwSws5x4iGeGAlDFyjIY4jTXd1nq91zRpG423k7ZOkHRx7gpx3jlEqbYUJXu5HFlSXaEj0Mqrexbycdq2RjBJwWWcAj+ZNSDMwqRt+ao05bXFfNJgc1o6tZUGV0SkQqodLKOCKr81e3WSLPSve27mh/MxwNCN1tOi0XL+Qy3sk6EloxHx1YqdxbK8xyeKiIMoOEJDNhH7GPR2i+wKqIRnRn22EFChbpl41covq+DkK5qyOjBLI1z2pJYW+wKeX891yFeaevYK3d/QlMY5muK9v6ZkmQtjayPID1QwBgiMshxtW1yoiEMXSiPq9wUMDrks0AtBWWQqIZa9b850JYeLvlXwKJpcGKl9GiJBodOpSBCyp0o7X8PMqevP1xmjss/M1ZVp8Tskh4QNsuptZvZbKJp1k9IROe5k0GxTdQ3D/v948nFXTD6njwcLQe5ZZhFXa/rao2Dj7VQ446O2bra47q39qE3h8IGyL2jcVPhsMd8O+D5EH80nSgSJeLFVlt98cwg6tzTjMlb/7hi1CEFrRbzPc/jUnN1Y4ezTxb25sz2Dr73TXW0vl6itHWTy1dIfT3x4H2TvwEFpwpQs3iY9gKNmd/aXAfCxF6RbF/4BUEsDBBQAAAAIAAAAIQCvzhJdwwEAAFIEAAANAAAAeGwvc3R5bGVzLnhtbL1U34ucMBB+718R8t5zFXrcFfUohYVCWw5uC32NGjUwSSQZF72//iZG3V1oOehDX8zMNzPf/HCS/GnSwM7SeWVNwdO7A2fS1LZRpiv4r9Px4wNnHoVpBFgjCz5Lz5/KD7nHGeRLLyUyYjC+4D3i8DlJfN1LLfydHaQhS2udFkiq6xI/OCkaH4I0JNnhcJ9ooQwv89Ya9Ky2o8GCZytQ5v6VnQVQWSlPyry2YB1Doqc6FsQILaPHVwGqciqArdAK5ghnAVgqWv20MtYFMIkZ4rdK/keu5fAUpABumyWgzAeBKJ05ksJW+TQPlN7Q4CPN4veOd+fEnGafrgKWg/JW1jX0o7fMKd+gMgfZIgU41fXhRDskwYhoNQmNEp01AgLlFrEKRFtLgJewDb/bG+6pZWbUR43fmoLTWoXuN5EKWsVIE5XAf80Wua9os3+iZVO78/8tOn0/molhgPloY39R+wKqM1puLYtNZb116pVcwx7UBMi4CFO7trh3t/R6M7cdZWHlCv4z3CC4qqMaFaAyf5gZcTbTZVyLFUVFF/UmC3E0shUj4Gk3Fvwi/5CNGvXj7vWszhZXr4v8PSxLer9UcHkNyjdQSwMEFAAAAAgAAAAhAH9rFfMlAQAAUAIAABEAAABkb2NQcm9wcy9jb3JlLnhtbJ2SzWrDMBCE730Ko7st2zEhCNuBtuTUQKEuLb0JaeOIWj9Iah2/fRUncRLwqcfVzH47u6hcH2QX/YJ1QqsKZUmKIlBMc6HaCr03m3iFIuep4rTTCio0gEPr+qFkhjBt4dVqA9YLcFEAKUeYqdDee0MwdmwPkrokOFQQd9pK6kNpW2wo+6Yt4DxNl1iCp5x6io/A2ExEdEZyNiHNj+1GAGcYOpCgvMNZkuGr14OVbrZhVG6cUvjBwKz1Ik7ugxOTse/7pF+M1pA/w5/bl7dx1Vio46kYoLrkjDAL1Gtbl/i2CIfrqPPbcOKdAP44BH3m7bzIqQ94FAKQU9yL8rF4em42qM7TPI/TIs6KJktJsST56us48q7/CpTnIf8mXgCn3PefoP4DUEsDBBQAAAAIAAAAIQBeuqfTdwEAABADAAAQAAAAZG9jUHJvcHMvYXBwLnhtbJ2SwU7rMBBF93xF5D11UiH0VDlGqIBY8ESlFlgbZ9JYOLblGaKWr8dJ1ZACK7K6M3N1fTK2uNq1NusgovGuZMUsZxk47SvjtiV72tyd/2MZknKVst5ByfaA7EqeiVX0ASIZwCwlOCxZQxQWnKNuoFU4S2OXJrWPraJUxi33dW003Hj93oIjPs/zSw47AldBdR7GQHZIXHT019DK654Pnzf7kPKkuA7BGq0o/aT8b3T06GvKbncarODToUhBa9Dv0dBe5oJPS7HWysIyBctaWQTBvxriHlS/s5UyEaXoaNGBJh8zNB9pa3OWvSqEHqdknYpGOWIH26EYtA1IUb74+IYNAKHgY3OQU+9UmwtZDIYkTo18BEn6FHFjyAI+1isV6RfiYko8MLAJ47rnK37wHU/6lr30bVAuLZCP6sG4N3wKG3+jCI7rPG2KdaMiVOkGxnWPDXGfuKLt/ctGuS1UR8/PQX/5z4cHLov5LE/fcOfHnuBfb1l+AlBLAQIAABQAAAAIAAAAIQA4nYbYPgEAAAcEAAATAAAAAAAAAAEAAAAAAAAAAABbQ29udGVudF9UeXBlc10ueG1sUEsBAgAAFAAAAAgAAAAhAPKfSdrpAAAASwIAAAsAAAAAAAAAAQAAAAAAbwEAAF9yZWxzLy5yZWxzUEsBAgAAFAAAAAgAAAAhAOVEG6PVAAAALAIAABoAAAAAAAAAAQAAAAAAgQIAAHhsL19yZWxzL3dvcmtib29rLnhtbC5yZWxzUEsBAgAAFAAAAAgAAAAhAFWoUP8+AgAAUAYAABgAAAAAAAAAAQAAAAAAjgMAAHhsL3dvcmtzaGVldHMvc2hlZXQxLnhtbFBLAQIAABQAAAAIAAAAIQCDGGolSAEAACYCAAAPAAAAAAAAAAEAAAAAAAIGAAB4bC93b3JrYm9vay54bWxQSwECAAAUAAAACAAAACEAP9jvIbEFAABTGwAAEwAAAAAAAAABAAAAAAB3BwAAeGwvdGhlbWUvdGhlbWUxLnhtbFBLAQIAABQAAAAIAAAAIQCvzhJdwwEAAFIEAAANAAAAAAAAAAEAAAAAAFkNAAB4bC9zdHlsZXMueG1sUEsBAgAAFAAAAAgAAAAhAH9rFfMlAQAAUAIAABEAAAAAAAAAAQAAAAAARw8AAGRvY1Byb3BzL2NvcmUueG1sUEsBAgAAFAAAAAgAAAAhAF66p9N3AQAAEAMAABAAAAAAAAAAAQAAAAAAmxAAAGRvY1Byb3BzL2FwcC54bWxQSwUGAAAAAAkACQA+AgAAQBIAAAAA&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-4" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><code>PAIRS</code>: Change the variables <code>POST</code> and <code>PRE</code> to the name of the paired variables you are testing.</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="simpler-statistics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>T<span class="sc">-</span>TEST PAIRS<span class="ot">=</span>POST WITH <span class="fu">PRE</span> (PAIRED)</span>
+<span id="cb16-2"><a href="simpler-statistics.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ES <span class="fu">DISPLAY</span>(<span class="cn">TRUE</span>) <span class="fu">STANDARDIZER</span>(CORRECTED_SD)</span>
+<span id="cb16-3"><a href="simpler-statistics.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">CI</span>(.<span class="dv">9500</span>)</span>
+<span id="cb16-4"><a href="simpler-statistics.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING<span class="ot">=</span>ANALYSIS.</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-pairedttest">6.3</a>.</p>
+</div>
+<div id="non-parametric-equivalent-2" class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Non parametric equivalent</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li>Change the variables <code>POST</code> and <code>PRE</code> to the name of the paired variables you are testing.</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="simpler-statistics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>NPTESTS </span>
+<span id="cb17-2"><a href="simpler-statistics.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>RELATED <span class="fu">TEST</span>(POST PRE) </span>
+<span id="cb17-3"><a href="simpler-statistics.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING SCOPE<span class="ot">=</span>ANALYSIS USERMISSING<span class="ot">=</span>EXCLUDE</span>
+<span id="cb17-4"><a href="simpler-statistics.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA ALPHA<span class="ot">=</span><span class="fl">0.05</span>  CILEVEL<span class="ot">=</span><span class="fl">95.</span></span></code></pre></div>
+</div>
+</div>
+<div id="oneBetwtest" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> One-way between ANOVA</h2>
+<p><strong>Hypothesis</strong> Is the ankle torque different across the three independent groups? If yes, where do the differences lie?</p>
+<div id="what-your-data-needs-to-look-like-4" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+atorq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+68.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+79.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+46.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+61.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+71.96875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+62.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+98.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+79.50916
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+99.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+98.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+100.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+131.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+89.68750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+67.21875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+79.31250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+75.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+74.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+88.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+73.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+98.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+111.46875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+66.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+86.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+73.40625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+98.71875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+81.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+103.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+65.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+123.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+101.71875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+56.34375
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-5" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li>Change the variables <code>atorq</code> and <code>group</code> to the names of your dependent and independent variables, respectively</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="simpler-statistics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>ONEWAY atorq BY group</span>
+<span id="cb18-2"><a href="simpler-statistics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ES<span class="ot">=</span>OVERALL</span>
+<span id="cb18-3"><a href="simpler-statistics.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>STATISTICS DESCRIPTIVES </span>
+<span id="cb18-4"><a href="simpler-statistics.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING ANALYSIS</span>
+<span id="cb18-5"><a href="simpler-statistics.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">CILEVEL</span>(<span class="fl">0.95</span>)</span>
+<span id="cb18-6"><a href="simpler-statistics.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>POSTHOC<span class="ot">=</span>LSD T3 <span class="fu">ALPHA</span>(<span class="fl">0.05</span>).</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-oneBetwtest">6.4</a>.</p>
+</div>
+</div>
+<div id="oneWithtest" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> One-way within ANOVA</h2>
+<p><strong>Hypothesis</strong> Is the ankle torque of the same group different across multiple sessions? If yes, where do the differences lie?</p>
+<div id="what-your-data-needs-to-look-like-5" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+after
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+post
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+pre
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+79.8750
+</td>
+<td style="text-align:right;">
+65.375
+</td>
+<td style="text-align:right;">
+71.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+61.3750
+</td>
+<td style="text-align:right;">
+40.500
+</td>
+<td style="text-align:right;">
+52.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+81.8125
+</td>
+<td style="text-align:right;">
+53.375
+</td>
+<td style="text-align:right;">
+70.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+98.8750
+</td>
+<td style="text-align:right;">
+59.500
+</td>
+<td style="text-align:right;">
+66.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+95.0625
+</td>
+<td style="text-align:right;">
+64.750
+</td>
+<td style="text-align:right;">
+63.16164
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+114.5625
+</td>
+<td style="text-align:right;">
+82.750
+</td>
+<td style="text-align:right;">
+87.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+98.5625
+</td>
+<td style="text-align:right;">
+68.375
+</td>
+<td style="text-align:right;">
+72.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+131.3750
+</td>
+<td style="text-align:right;">
+104.125
+</td>
+<td style="text-align:right;">
+96.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+98.6250
+</td>
+<td style="text-align:right;">
+91.375
+</td>
+<td style="text-align:right;">
+70.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+71.8125
+</td>
+<td style="text-align:right;">
+60.000
+</td>
+<td style="text-align:right;">
+65.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+78.8750
+</td>
+<td style="text-align:right;">
+78.625
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+74.8750
+</td>
+<td style="text-align:right;">
+82.375
+</td>
+<td style="text-align:right;">
+68.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+95.9375
+</td>
+<td style="text-align:right;">
+81.750
+</td>
+<td style="text-align:right;">
+80.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+98.4375
+</td>
+<td style="text-align:right;">
+60.500
+</td>
+<td style="text-align:right;">
+86.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+130.4375
+</td>
+<td style="text-align:right;">
+94.375
+</td>
+<td style="text-align:right;">
+90.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+86.2500
+</td>
+<td style="text-align:right;">
+58.250
+</td>
+<td style="text-align:right;">
+74.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+82.6250
+</td>
+<td style="text-align:right;">
+60.375
+</td>
+<td style="text-align:right;">
+68.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+110.5000
+</td>
+<td style="text-align:right;">
+86.125
+</td>
+<td style="text-align:right;">
+87.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+103.0625
+</td>
+<td style="text-align:right;">
+89.500
+</td>
+<td style="text-align:right;">
+72.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+123.2500
+</td>
+<td style="text-align:right;">
+61.750
+</td>
+<td style="text-align:right;">
+69.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+110.3750
+</td>
+<td style="text-align:right;">
+80.000
+</td>
+<td style="text-align:right;">
+106.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+62.1250
+</td>
+<td style="text-align:right;">
+45.250
+</td>
+<td style="text-align:right;">
+55.87500
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-6" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>GLM</code>. Add the names of all the variables (i.e. <code>pre</code>, <code>post</code>, <code>after</code>). These three variables actually represent the three categories of a common variable, which in this context we call <code>session</code>. You can given any name to this common variable.</p></li>
+<li><p><code>/WSFACTOR</code>. Change <code>session</code> to any name you want to denote the categories within your repeated measures.</p></li>
+<li><p><code>/MEASURE</code>. Change <code>atorq</code> to the name of your dependent variable.</p></li>
+<li><p><code>/EMMEANS</code>. Change <code>session</code> to any name you want to denote the categories within your repeated measures.</p></li>
+<li><p><code>/WSDESIGN</code>. Change <code>session</code> to any name you want to denote the categories within your repeated measures.</p></li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="simpler-statistics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>GLM pre post after</span>
+<span id="cb19-2"><a href="simpler-statistics.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>WSFACTOR<span class="ot">=</span>session <span class="dv">3</span> Polynomial </span>
+<span id="cb19-3"><a href="simpler-statistics.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MEASURE<span class="ot">=</span>atorq </span>
+<span id="cb19-4"><a href="simpler-statistics.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>METHOD<span class="ot">=</span><span class="fu">SSTYPE</span>(<span class="dv">3</span>)</span>
+<span id="cb19-5"><a href="simpler-statistics.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(session) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb19-6"><a href="simpler-statistics.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PRINT<span class="ot">=</span>ETASQ PARAMETER HOMOGENEITY </span>
+<span id="cb19-7"><a href="simpler-statistics.html#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">ALPHA</span>(.<span class="dv">05</span>)</span>
+<span id="cb19-8"><a href="simpler-statistics.html#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>WSDESIGN<span class="ot">=</span>session.</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-oneWithtest">6.5</a>.</p>
+</div>
+</div>
+<div id="corr" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Correlation</h2>
+<p><strong>Hypothesis</strong> Are the variables of ankle torque, ankle work, knee torque, and knee work correlated with each other?</p>
+<div id="what-your-data-needs-to-look-like-6" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+atorq
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+awork
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+apow
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ktorq
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+kwork
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+kpow
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:right;">
+139
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+136
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+115
+</td>
+<td style="text-align:right;">
+121
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+164
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+163
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+165
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+157
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:right;">
+155
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+165
+</td>
+<td style="text-align:right;">
+145
+</td>
+<td style="text-align:right;">
+158
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+145
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+128
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+147
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+153
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+138
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:right;">
+146
+</td>
+<td style="text-align:right;">
+165
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+165
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:right;">
+173
+</td>
+<td style="text-align:right;">
+158
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+171
+</td>
+<td style="text-align:right;">
+187
+</td>
+<td style="text-align:right;">
+178
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+162
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:right;">
+156
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:right;">
+128
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+144
+</td>
+<td style="text-align:right;">
+146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+134
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+132
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+166
+</td>
+<td style="text-align:right;">
+167
+</td>
+<td style="text-align:right;">
+171
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+159
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+166
+</td>
+<td style="text-align:right;">
+154
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+173
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:right;">
+131
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+118
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+157
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+156
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+144
+</td>
+<td style="text-align:right;">
+157
+</td>
+<td style="text-align:right;">
+144
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+119
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:right;">
+169
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:right;">
+173
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+146
+</td>
+<td style="text-align:right;">
+164
+</td>
+<td style="text-align:right;">
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:right;">
+165
+</td>
+<td style="text-align:right;">
+177
+</td>
+<td style="text-align:right;">
+165
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+97
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+92
+</td>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+94
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:right;">
+99
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+112
+</td>
+<td style="text-align:right;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+106
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+110
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:right;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+106
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+99
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,UEsDBBQAAAAIAAAAIQA4nYbYPgEAAAcEAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbK2Ty27DIBBF9/0KxLYyJF1UVRUniz6WbRbpB1AYxygYEDNJk78vtpNIrdI8lG6MzNy55w6C0WTdOLaChDb4kg/FgDPwOhjr5yX/mL0WD5whKW+UCx5KvgHkk/HNaLaJgCw3eyx5TRQfpURdQ6NQhAg+V6qQGkX5N81lVHqh5iDvBoN7qYMn8FRQ68HHo2eo1NIRe1nn7T5IAoecPfXCllVyFaOzWlGuy5U3vyjFliByZ6fB2ka8zQIuDxLayt+Abd97PplkDbCpSvSmmqySJuhpChFl1ovjLgdihqqyGrLHssktAtpABkwRsyUksrDPfJStQ4LL4bszarvPJK6dRNo4wKtHxZhAGawBqHGiNz1BpnyfoP8Or+Z3NieAXyEtPkNY/Pew7SoaZf0Z/E6Msluun/pnkL3/Lofs3vH4G1BLAwQUAAAACAAAACEA8p9J2ukAAABLAgAACwAAAF9yZWxzLy5yZWxzrZLBTsMwDEDvfEXk+5puSAihpbsgpN0mND7AJG4btY2jxIPu74mQQAyNaQeOceznZ8vrzTyN6o1S9hwMLKsaFAXLzofOwMv+aXEPKgsGhyMHMnCkDJvmZv1MI0qpyb2PWRVIyAZ6kfigdbY9TZgrjhTKT8tpQinP1OmIdsCO9Kqu73T6yYDmhKm2zkDauiWo/THSNWxuW2/pke1hoiBnWvzKKGRMHYmBedTvnIZX5qEqUNDnXVbXu/w9p55I0KGgtpxoEVOpTuLLWr91HNtdCefPjEtCt/+5HJqFgiN3WQlj/DLSJzfQfABQSwMEFAAAAAgAAAAhAOVEG6PVAAAALAIAABoAAAB4bC9fcmVscy93b3JrYm9vay54bWwucmVsc62Rz4oCMQyH7z5FyX0nMwoiYsfLsuBV9AFKJ/MHZ9rSZHedt7couiuIePAUfgn58kFW6+PQqx+K3HmnochyUOSsrzrXaNjvvj4WoFiMq0zvHWkYiWFdTlZb6o2kHW67wCpBHGtoRcISkW1Lg+HMB3JpUvs4GEkxNhiMPZiGcJrnc4z/GVDeMdWm0hA3VQFqNwZ6he3rurP06e33QE4enMBfHw/cEkmCmtiQaLi1GM+lyBIV8LHM9J0yknbpT+QcL82nDrN3OrCMfXroTeKSr+fx7snlCVBLAwQUAAAACAAAACEAnfLucuMHAAACKAAAGAAAAHhsL3dvcmtzaGVldHMvc2hlZXQxLnhtbI2aW3MiNxCF3/MrKN6zjKS5bmG2dphL8pCqVDbJO8ZjmywwDozXyb8PoO4RnJbWeXGZryVxRjR91DPMP/2z206+dYfjpt/fTdWHaDrp9uv+YbN/upv+8XvzYz6dHIfV/mG17ffd3fTf7jj9tPhh/tYfvh6fu26YnBbYH++mz8Pw8nE2O66fu93q+KF/6fanyGN/2K2G08vD0+z4cuhWD5dJu+1MR1E62602+6ld4ePh/6zRPz5u1l3Vr1933X6wixy67Wo4yT8+b16O08X8YXOKna9ncuge76af1cc2UdPZYn556z833dvx6v/JsLr/0m279dA9nDZgOjlf2X3ffz0Hfz6h6Dx1JuY2F1W/HiYP3ePqdTv81r/91G2enofTIsn4btVqWC3mh/5tcrgsfrz8Xb8eh35nVziDxXx9jn8eB5zoZr/d7Lsvw+EU3ZzedFgcX+//ms+Gk5jz69maZpXfn7Ua+sPfnmnLd6adt8EzrXpn2kv/5plVf3/W14DG5p1pAY3tO9OExtnpAxo/JT1+HOf/vi3UfPbterstzaJbvLTYxLe4sjjJb3FNSytYvCEeZbe8tbzQI76RbEbJ5jJOg2RLM8BLi00Kko33AmuLlQFpDXFlQDKPL/ya41FzbGWAZkszwEsaDCIqi1PAtcUqhWtpiBvgLfPUrzkZNSeXgfBhl4lfs8UmAc0WpwVoTgL7TFzBMi1xrfya01FzalMRNKf+3Ej9uWFxCovUaWCfice4zzw+9mvORs2ZfT/QnPk1W2wAVxYn8FWrM9IAn1aTiby1mnl84tecj5pzqw40594MXeb+skGjQVttsUowN4gb/A7y+IDmYtRcXAZClSoL/z4X/tywOAVcF2LfrGbiMeYz8auSeaNZRc4uI1sVQTVhFLIkjptU8Xi4zJq4UNhwQGGV5oAOab+yekWVHsVbnhQo3nKjUDyNx8rH68eYKhzA72rLgcQExDtjVGxfKF4Hdl4Hdt4/vub14wLFUyDNUTwFTGjnnUUqMiY0SeL4nVsSF2WFx2Mt5PXjFMUb/zeh5UASBcQ7r1TsUCieDDBG8XFg52N/geH10f0bDsidj8VV3Yp3pqnIqtA2iYs6Q1yYPXHM4JrXx1LfcACduR1nhNLGuaciz0L/JC5zPg3sfOo/qvD6mRBPgVxUG54REu9sVLF5ofjM70rEhS0Rx+9lPa6vUTwFclFtKJAEjlrK+akiF0NHJZ6JnCdPzVF87j/Y8vpa1HkO4FFgDIR23hmrIjtDayWeibSxHE9MFXFxWuT18bjScCCOUTwHAjuvncFq8jN0WOIZpg1x1FIRx+pU8/p4Dm9CgXYMBE6O2jmstn6m0WGJY0YuiYudJ46FryYusqPhANatdgwE2jh91XpaP9Oi+bQ8x7QhjkeVijh+UrVmI0WTGgNCvBb16Va8c1hNXSg6LPE8R/EmIN4ExLOR5ig+EGg5kASaUe0cVls/0+iwxHM8mBFHt6+IS/EBI23GQIriKZCEct45rLZ+ptFhiecJiqc+Fk2KeIo9E3GFZagZA2LnpfXeincOq62fYRkuiYu2mrio8zweD2Y60I02YwDrPAdMKOedw2rrZxodlngm0oacFE+VPB6PxJrbUjQpDiR4tuGACpiUdg6rrZ9pdFjimfjCWh5jM0Icm5dah/pWDsi04Rkhk3IOq62faXRYHXBY4jJtLBf3CXTASBsO4FW1nhm3t+ucwxrrZ+ghJXGRNsSFSREXO09c4Q3IhgNi5zmgAqXSOIc11JOiwxLPFYpX/pzn8diAG25VsdpwIMezDQdC1cY4hzXUk6LDEhc5T1zkPI8X4rmHRYflAJ6GWg6E2kBzdZvX35OWxGXamMDOm8DOB1rVhgNoa61nxq1457DG35OWxBNxmzr2+kIVGF8TL/D7yhz9lXkWUO7s1VBDivZKPMFOhDjW1YrHY5EnXmALyFwoJx7KduethrwSvZU4ttJL4lhUK+Jyzy0vsP9jLqpMip/RrXJnrIZaUTRW4riHS+Jyz/3ja+IFHgqYi8caGV7prXLnqob6UHRV4nhnbkkcT54Vj8cGhLiKhHQbEDcMiAelO081fo8siUvphffcWfF4YUuFN6Eb5iJdCnGptw+TnKPG/h60JJ5gphPHg1vF4zHTiRdYGYmrCCa0PCH0HMz5aezvQEviorwQl9KVP9WJi12P+V40OtIYCG27s9PYb49lgC+JY3deEcf7JXUceDLacADv57bjjMD5N3Z2GvvtsWQuNt7f4FaBdWriKhJJwwGs7J7Arfirx6fUgIoHqLFXzJK43Hn/o9WauIrwFMYBvKvYjjMCZ4HYOWqceHe4ZC7SJgmIT7wFqyauIrTUMSDEJ+/kvDPV2JoY3rcomYudTwPiU2/hr4lfZzCJT/0fScsBFRLvfDWmBhR9lbnY+Swg3j++Ji42uOGA+MHAOCOUNs5aY7+FlsxFkSerxBuTsd+iax6PFbEZA/gMZwyEvrDOXOPC6+clcTwXL4nj/e+KOJ6Lax4vxRehtCm+v/OJs9ck8jp6SVwcJImL55bE8a5FTVx4FHNMGl4/cKZJnLsmynsAKImLBzjExTOQJOCuxAs0KOZorszxXDC7+uHYy+qp+2V1eNrsj5Nt9zjcTaMP2XRysL8zu/w/9C+X/5Lp5L4fhn7Hr5671UN3OL8y08lj3w/84vxztvHne4v/AFBLAwQUAAAACAAAACEAgxhqJUgBAAAmAgAADwAAAHhsL3dvcmtib29rLnhtbI1Ry07DMBC88xXW3mkeaiNaNanES1RCgERpzybeNFYdO7Id0v4961QpcOO0M+Pd0c56uTo2in2hddLoHJJJDAx1aYTU+xw+No/XN8Cc51pwZTTmcEIHq+Jq2Rt7+DTmwGheuxxq79tFFLmyxoa7iWlR00tlbMM9UbuPXGuRC1cj+kZFaRxnUcOlhrPDwv7Hw1SVLPHelF2D2p9NLCruaXtXy9ZBsaykwu05EONt+8IbWvuogCnu/IOQHkUOU6Kmxz+C7drbTqpAZvEMouIS8s0ygRXvlN/QaqM7nSudpmkWOkPXVmLvfoYCZced1ML0OaRTuuxpZMkMWD/gnRS+JiGL5xftCeW+9jnMsywO5tEv9+F+Y2V6CPcecEL/FOqa9idsF5KAXYtkcBjHSq5KShPK0JhOZ8kcWNUpdUfaq342fDAIQ2OS4htQSwMEFAAAAAgAAAAhAD/Y7yGxBQAAUxsAABMAAAB4bC90aGVtZS90aGVtZTEueG1s7VlNj9NGGL7zK0a+g+PEDtkVWbTJJtDCwmo3UHGc2BN7yNhjzUx2ya2CY6VKVWnVS6XeeqjaIoHUC/0121K1VOIv9PVHkvFmsmRhqxZBDoln/LzfH37HuXL1QczQIRGS8qRtOZdqFiKJzwOahG3rzqB/sWUhqXASYMYT0ramRFpXty5cwZsqIjFBQJ7ITdy2IqXSTduWPmxjeYmnJIF7Iy5irGApQjsQ+AjYxsyu12pNO8Y0sVCCY+B6ezSiPkGDjKW1NWPeY/CVKJlt+Ewc+LlEnSLHBmMn+5FT2WUCHWLWtkBOwI8G5IGyEMNSwY22Vcs/lr11xZ4TMbWCVqPr55+SriQIxvWcToTDOaHTdzcu78z51wv+y7her9ftOXN+OQD7PljqLGHdfsvpzHhqoOJymXe35tXcKl7j31jCb3Q6HW+jgm8s8O4SvlVrutv1Ct5d4L1l/Tvb3W6zgvcW+OYSvn95o+lW8TkoYjQZL6GzeM4jM4eMOLtuhLcA3polwAJla9lV0CdqVa7F+D4XfQDkwcWKJkhNUzLCPuC6OB4KijMBeJNg7U6x5culrUwWkr6gqWpbH6cYKmIBefX8x1fPn6JXz58cP3x2/PCX40ePjh/+bCC8jpNQJ3z5/Rd/f/sp+uvpdy8ff2XGSx3/+0+f/fbrl2ag0oEvvn7yx7MnL775/M8fHhvg2wIPdfiAxkSiW+QI7fMYbDMIIENxNopBhGmFAkeANAB7KqoAb00xM+E6pOq8uwIagAl4bXK/outBJCaKGoA3orgC3OWcdbgwmnMjk6WbM0lCs3Ax0XH7GB+aZHdPhLY3SSGTqYllNyIVNfcYRBuHJCEKZff4mBAD2T1KK37dpb7gko8UukdRB1OjSwZ0qMxE12kMcZmaFIRQV3yzexd1ODOx3yGHVSQUBGYmloRV3HgNTxSOjRrjmOnIm1hFJiUPpsKvOFwqiHRIGEe9gEhporktphV1b2DoRMaw77JpXEUKRccm5E3MuY7c4eNuhOPUqDNNIh37kRxDimK0x5VRCV6tkGwNccDJynDfpUSdrazv0DAyJ0h2ZyLKrl3pvzFNTmvGjEI3/tCMZ/BteDSZSuJkC16Fewcb7w6eJHsEcv1D3/3Qd9/HvruqltfttosGa+tzcc4vXjkkjyhjB2rKyE2Zt2YJSgd92MwXOdF8Jk8juCzFVXChwPk1Elx9QlV0EOEUxDi5hFCWrEOJUi7hJGCt5J0fJykYn+95szMgoLHa5UGx3dDPhnM2+SqUuqBGxmBdYY3LbyfMKYBrSnM8szTvVGm25k2oBoSzg7/TrBeiIWMwI0Hm94LBLCznHiIZ4YCUMXKMhjiNNd3Wer3XNGkbjbeTtk6QdHHuCnHeOUSpthQle7kcWVJdoSPQyqt7FvJx2rZGMEnBZZwCP5k1IMzCpG35qjTltcV80mBzWjq1lQZXRKRCqh0so4IqvzV7dZIs9K97buaH8zHA0I3W06LRcv5DLeyToSWjEfHVip3FsrzHJ4qIgyg4QkM2EfsY9HaL7AqohGdGfbYQUKFumXjVyi+r4OQrmrI6MEsjXPaklhb7Ap5fz3XIV5p69grd39CUxjma4r2/pmSZC2NrI8gPVDAGCIyyHG1bXKiIQxdKI+r3BQwOuSzQC0FZZCohlr1vznQlh4u+VfAomlwYqX0aIkGh06lIELKnSjtfw8yp68/XGaOyz8zVlWnxOySHhA2y6m1m9lsomnWT0hE57mTQbFN1DcP+/3jycVdMPqePBwtB7llmEVdr+tqjYOPtVDjjo7Zutrjurf2oTeHwgbIvaNxU+Gwx3w74PkQfzSdKBIl4sVWW33xzCDq3NOMyVv/uGLUIQWtFvM9z+NSc3Vjh7NPFvbmzPYOvvdNdbS+XqK0dZPLV0h9PfHgfZO/AQWnClCzeJj2Ao2Z39pcB8LEXpFsX/gFQSwMEFAAAAAgAAAAhAK/OEl3DAQAAUgQAAA0AAAB4bC9zdHlsZXMueG1svVTfi5wwEH7vXxHy3nMVetwV9SiFhUJbDm4LfY0aNTBJJBkXvb/+JkbdXWg56ENfzMw3M9/8cJL8adLAztJ5ZU3B07sDZ9LUtlGmK/iv0/HjA2cehWkEWCMLPkvPn8oPuccZ5EsvJTJiML7gPeLwOUl83Ust/J0dpCFLa50WSKrrEj84KRofgjQk2eFwn2ihDC/z1hr0rLajwYJnK1Dm/pWdBVBZKU/KvLZgHUOipzoWxAgto8dXAapyKoCt0ArmCGcBWCpa/bQy1gUwiRnit0r+R67l8BSkAG6bJaDMB4EonTmSwlb5NA+U3tDgI83i945358ScZp+uApaD8lbWNfSjt8wp36AyB9kiBTjV9eFEOyTBiGg1CY0SnTUCAuUWsQpEW0uAl7ANv9sb7qllZtRHjd+agtNahe43kQpaxUgTlcB/zRa5r2izf6JlU7vz/y06fT+aiWGA+Whjf1H7AqozWm4ti01lvXXqlVzDHtQEyLgIU7u2uHe39Hoztx1lYeUK/jPcILiqoxoVoDJ/mBlxNtNlXIsVRUUX9SYLcTSyFSPgaTcW/CL/kI0a9ePu9azOFlevi/w9LEt6v1RweQ3KN1BLAwQUAAAACAAAACEAXfQqrCQBAABQAgAAEQAAAGRvY1Byb3BzL2NvcmUueG1snZLLasMwEEX3/QqjvS3bCaEVtgNtyaqBQlNauhPSJBG1Hkhqnfx95WcS8KrL0b1z5s6gYn2SdfQL1gmtSpQlKYpAMc2FOpTofbeJ71HkPFWc1lpBic7g0Lq6K5ghTFt4tdqA9QJcFEDKEWZKdPTeEIwdO4KkLgkOFcS9tpL6UNoDNpR90wPgPE1XWIKnnHqKW2BsJiIakJxNSPNj6w7AGYYaJCjvcJZk+OL1YKWbbeiUK6cU/mxg1jqKk/vkxGRsmiZpFp015M/w5/blrVs1Fqo9FQNUFZwRZoF6basCXxfhcDV1fhtOvBfAH89Bn3kbFun7gEchAOnjjsrH4ul5t0FVnuZ5nC7jbLnLUrJckfzhqx15038BymHIv4kjoM99+wmqP1BLAwQUAAAACAAAACEAXrqn03cBAAAQAwAAEAAAAGRvY1Byb3BzL2FwcC54bWydksFO6zAQRfd8ReQ9dVIh9FQ5RqiAWPBEpRZYG2fSWDi25Rmilq/HSdWQAiuyujNzdX0ytrjatTbrIKLxrmTFLGcZOO0r47Yle9rcnf9jGZJylbLeQcn2gOxKnolV9AEiGcAsJTgsWUMUFpyjbqBVOEtjlya1j62iVMYt93VtNNx4/d6CIz7P80sOOwJXQXUexkB2SFx09NfQyuueD583+5DypLgOwRqtKP2k/G909Ohrym53Gqzg06FIQWvQ79HQXuaCT0ux1srCMgXLWlkEwb8a4h5Uv7OVMhGl6GjRgSYfMzQfaWtzlr0qhB6nZJ2KRjliB9uhGLQNSFG++PiGDQCh4GNzkFPvVJsLWQyGJE6NfARJ+hRxY8gCPtYrFekX4mJKPDCwCeO65yt+8B1P+pa99G1QLi2Qj+rBuDd8Cht/owiO6zxtinWjIlTpBsZ1jw1xn7ii7f3LRrktVEfPz0F/+c+HBy6L+SxP33Dnx57gX29ZfgJQSwECAAAUAAAACAAAACEAOJ2G2D4BAAAHBAAAEwAAAAAAAAABAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLAQIAABQAAAAIAAAAIQDyn0na6QAAAEsCAAALAAAAAAAAAAEAAAAAAG8BAABfcmVscy8ucmVsc1BLAQIAABQAAAAIAAAAIQDlRBuj1QAAACwCAAAaAAAAAAAAAAEAAAAAAIECAAB4bC9fcmVscy93b3JrYm9vay54bWwucmVsc1BLAQIAABQAAAAIAAAAIQCd8u5y4wcAAAIoAAAYAAAAAAAAAAEAAAAAAI4DAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxQSwECAAAUAAAACAAAACEAgxhqJUgBAAAmAgAADwAAAAAAAAABAAAAAACnCwAAeGwvd29ya2Jvb2sueG1sUEsBAgAAFAAAAAgAAAAhAD/Y7yGxBQAAUxsAABMAAAAAAAAAAQAAAAAAHA0AAHhsL3RoZW1lL3RoZW1lMS54bWxQSwECAAAUAAAACAAAACEAr84SXcMBAABSBAAADQAAAAAAAAABAAAAAAD+EgAAeGwvc3R5bGVzLnhtbFBLAQIAABQAAAAIAAAAIQBd9CqsJAEAAFACAAARAAAAAAAAAAEAAAAAAOwUAABkb2NQcm9wcy9jb3JlLnhtbFBLAQIAABQAAAAIAAAAIQBeuqfTdwEAABADAAAQAAAAAAAAAAEAAAAAAD8WAABkb2NQcm9wcy9hcHAueG1sUEsFBgAAAAAJAAkAPgIAAOQXAAAAAA==&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-7" class="section level3" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><code>/VARIABLE</code>. Add the names of all the variables (i.e. <code>atorq</code>, <code>awork</code>, <code>apow</code>, <code>ktorq</code>) you want to find a correlation.</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="simpler-statistics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>CORRELATIONS</span>
+<span id="cb20-2"><a href="simpler-statistics.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>VARIABLES<span class="ot">=</span>atorq awork apow ktorq</span>
+<span id="cb20-3"><a href="simpler-statistics.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PRINT<span class="ot">=</span>TWOTAIL NOSIG FULL</span>
+<span id="cb20-4"><a href="simpler-statistics.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CI <span class="fu">CILEVEL</span>(<span class="dv">95</span>) <span class="fu">BIAS</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb20-5"><a href="simpler-statistics.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MISSING<span class="ot">=</span>PAIRWISE.</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-corr">6.6</a>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tougher-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

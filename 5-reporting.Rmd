@@ -1,0 +1,230 @@
+
+```{r, echo = FALSE, include = FALSE}
+library (tidyverse)
+library (kableExtra)
+library (downloadthis)
+```
+
+
+```{r, echo = FALSE, include = FALSE}
+df2 <- rio::import ("data/df2.xlsx")
+names (df2) <- c("subj",
+                 "group",
+                 "session",
+                 "side",
+                 "set",
+                 "rep",
+                 "atorq",
+                 "awork",
+                 "apow",
+                 "ktorq",
+                 "kwork",
+                 "kpow")
+```
+
+
+# Reporting
+
+There is probably a tonne of guidelines to how one should report statistical findings in the Results section. How I report below is what I commonly do which has served me well. I believe it very closely approximates many guideline recommendations.
+
+## One-sample t test {#report-onettest}
+
+For running the test, please see chapter \@ref(onettest). After running the test, this is what the result looks like in Figure \@ref(fig:1sample-ttest).
+
+```{r, 1sample-ttest, fig.cap="One sample t test", out.width = '100%', echo = FALSE, eval=TRUE}
+
+knitr::include_graphics("images/one_sample_ttest.png")
+
+```
+
+### Reporting
+
+Ankle torque in the present cohort was statistically significantly greater than the hypothesized mean by 24.11 Nm/kg (t = 7.14, P < 0.001, 95%CI 17.09 to 31.14 Nm/kg).
+
+
+## Independent t-test {#report-twottest}
+
+For running the test, please see chapter \@ref(twottest).After running the test, this is what the result looks like in Figure \@ref(fig:two-sample-ttest).
+
+```{r two-sample-ttest, fig.cap="Two sample t test", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/two_sample_ttest.png")
+
+```
+
+### Reporting
+
+Ankle torque in group `G` was not statistically different from group `T`, with a mean difference of -1.49 Nm/kg (t = -1.49, P = 0.833, 95%CI -15.97 to 13.00 Nm/kg).
+
+
+## Paired t-test {#report-pairedttest}
+
+
+For running the test, please see chapter \@ref(pairedttest). After running the test, this is what the result looks like in Figure \@ref(fig:paired-ttest).
+
+```{r paired-ttest, fig.cap="Paired t test", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/paired_ttest.png")
+
+```
+
+### Reporting
+
+Ankle torque was 24.58 Nm/kg (t = 4.95, P < 0.001, 95%CI 13.34 to 35.81 Nm/kg) more after training than before training.
+
+
+## One-way between ANOVA{#report-oneBetwtest}
+
+
+For running the test, please see chapter \@ref(oneBetwtest). After running the test, this is what the result looks like in Figure \@ref(fig:one-between-anova-primary) and \@ref(fig:one-between-anova-posthoc).
+
+```{r one-between-anova-primary, fig.cap="One-way between ANOVA primary results", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/one_between_anova_primary.png")
+
+```
+
+```{r one-between-anova-posthoc, fig.cap="One-way between ANOVA post hoc", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/one_between_anova_posthoc.png")
+
+```
+
+
+### Reporting
+
+There was a significant effect of group on ankle torque (F = 5.06, P = 0.013). Group 2 was 24.58 Nm/kg (P = 0.004, 95%CI 8.73 to 40.42 Nm/kg) greater than group one, but was not significantly different from group 3 (P = 0.156, mean difference of 10.80 95%CI -4.38 to 25.98 Nm/kg). Group 3 was not significantly different from group 1 (P = 0.074, mean difference of 13.77 95%CI -1.40 to 28.95 Nm/kg).
+
+
+## One-way within ANOVA{#report-oneWithtest}
+
+
+For running the test, please see chapter \@ref(oneWithtest). After running the test, this is what the result looks like in Figure \@ref(fig:one-within-anova-primary) and \@ref(fig:one-within-anova-posthoc).
+
+```{r one-within-anova-primary, fig.cap="One-way within ANOVA primary results", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/one_within_anova_primary.png")
+
+```
+
+```{r one-within-anova-posthoc, fig.cap="One-way within ANOVA post hoc", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/one_within_anova_posthoc.png")
+
+```
+
+
+### Reporting
+
+There was a significant effect of session on ankle torque (F = 37.56, P < 0.001). Ankle torque in session 3 (`after`) was significantly greater than in session 2 (`post`) and 1 (`pre`), by  23.62 Nm/kg (P < 0.001, 95% CI 17.10 to 30.15 Nm/kg) and 19.67 Nm/kg (P < 0.001, 95% CI 13.43 to 25.92 Nm/kg), respectively. Ankle torque in session 2 was not significantly different from 1 (P = 0.142, mean difference of -3.95 95%CI -9.34 to 1.44 Nm/kg). 
+
+## Correlation{#report-corr}
+
+For running the test, please see chapter \@ref(corr). After running the test, this is what the result looks like in Figure \@ref(fig:corr-test).
+
+```{r corr-test, fig.cap="Correlation", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/corr_test.png")
+
+```
+
+### Reporting
+
+Ankle torque was significant correlated with ankle work with a magnitude of 0.99 (P < 0.001, 95%CI 0.98 to 1.00).
+
+## Two (or more) way between ANOVA {#report-twoBetwtest}
+
+
+For running the test, please see chapter \@ref(twoBetwtest). After running the test, this is what the result looks like in Figure \@ref(fig:two-between-anova-primary) and \@ref(fig:two-between-anova-posthoc).
+
+```{r two-between-anova-primary, fig.cap="Two-way between ANOVA primary results", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/two_between_anova_primary.png")
+
+```
+
+```{r two-between-anova-posthoc, fig.cap="Two-way between ANOVA post hoc", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/two_between_anova_posthoc.png")
+
+```
+
+
+### Reporting
+
+There was a non-significant group by supplement interaction on ankle torque (F = 0.257, P = 0.615). There was a significant main effect of supplements (F = 17.093, P < 0.001), where individuals taking supplements had 21.89 Nm/kg (95%CI 11.19 to 32.59 Nm/kg) greater ankle torque than those not taking supplements. There was no significant main effect of groups on ankle torque (F = 0.079, P = 0.780). 
+
+
+## Two (or more) way within ANOVA{#report-twoWithtest}
+
+For running the test, please see chapter \@ref(twoWithtest). After running the test, this is what the result looks like in Figure \@ref(fig:two-within-anova-primary) and \@ref(fig:two-within-anova-posthoc).
+
+```{r two-within-anova-primary, fig.cap="Two-way between ANOVA primary results", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/two_within_anova_primary.png")
+
+```
+
+```{r two-within-anova-posthoc, fig.cap="Two-way between ANOVA post hoc", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/two_within_anova_posthoc.png")
+
+```
+
+
+### Reporting
+
+There was a non-significant session by side interaction on ankle torque (F = 0.303, P = 0.588). There was a significant main effect of sessions (F = 60.432, P < 0.001), where ankle torque was greater in session 1 than in session 2 by 21.65 Nm/kg (95%CI 15.86 to 27.44 Nm/kg). There was no significant main effect of side on ankle torque (F = 3.083, P = 0.094). 
+
+
+## Repeated (within-between) measures ANOVA {#report-RManovatest}
+
+For running the test, please see chapter \@ref(RManovatest). After running the test, this is what the result looks like in Figure \@ref(fig:rm-anova-primary1), \@ref(fig:rm-anova-primary2) and \@ref(fig:rm-anova-posthoc).
+
+```{r rm-anova-primary1, fig.cap="Repeated measures ANOVA primary results 1", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/rm_anova_primary1.png")
+
+```
+
+```{r rm-anova-primary2, fig.cap="Repeated measures ANOVA primary results 2", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/rm_anova_primary2.png")
+
+```
+
+
+```{r rm-anova-posthoc, fig.cap="Repeated measures ANOVA post hoc", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/rm_anova_posthoc.png")
+
+```
+
+
+### Reporting
+
+There was a non-significant group by session interaction effect on ankle torque (F = 0.918, P = 0.349). There was a significant main effect of sessions (F = 61.052, P < 0.001), where ankle torque was greater in session 2 than in session 1 by 21.89 Nm/kg (95%CI 16.05 to 27.74 Nm/kg). There was no significant main effect of group on ankle torque (F = 0.046, P = 0.833). 
+
+
+
+## Linear mixed model {#report-lmmtest}
+
+
+For running the test, please see chapter \@ref(lmmtest). After running the test, this is what the result looks like in Figure \@ref(fig:rm-anova-primary1), \@ref(fig:rm-anova-primary2) and \@ref(fig:rm-anova-posthoc).
+
+```{r mixed-primary, fig.cap="Linear mixed model primary results", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/mixedmodel_primary.png")
+
+```
+
+```{r mixed-posthoc, fig.cap="Linear mixed model posthoc results", out.width = '100%', echo = FALSE}
+
+knitr::include_graphics("images/mixedmodel_posthoc.png")
+
+```
+
+
+### Reporting
+
+There was a non-significant group by session interaction effect on ankle torque (F = 0.918, P = 0.349). There was a significant main effect of sessions (F = 61.052, P < 0.001), where ankle torque was greater in session 2 than in session 1 by 21.89 Nm/kg (95%CI 16.05 to 27.74 Nm/kg). There was no significant main effect of group on ankle torque (F = 0.046, P = 0.833). 

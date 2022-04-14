@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Reporting | Statistics done ALMOST right - an SPSS syntax recipe book</title>
+  <meta name="description" content="Chapter 6 Reporting | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Reporting | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/images/cover_image.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Reporting | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  
+  
+  <meta name="twitter:image" content="/images/cover_image.png" />
+
+<meta name="author" content="Bernard Liew" />
+
+
+<meta name="date" content="2022-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tougher-statistics.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<script src="libs/font-awesome-5.13.0/js/script.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics done ALMOST right - an SPSS syntax recipe book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#where-did-this-book-come-from"><i class="fa fa-check"></i><b>1.1</b> Where did this book come from?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-this-book-offers"><i class="fa fa-check"></i><b>1.2</b> What this book offers?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#who-this-book-isnt-for"><i class="fa fa-check"></i><b>1.3</b> Who this book isn’t for?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="cleaning-data.html"><a href="cleaning-data.html"><i class="fa fa-check"></i><b>2</b> Cleaning data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe1"><i class="fa fa-check"></i><b>2.1</b> Recipe 1 - Paste to syntax</a></li>
+<li class="chapter" data-level="2.2" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe2"><i class="fa fa-check"></i><b>2.2</b> Recipe 2 - Setting your work directory</a></li>
+<li class="chapter" data-level="2.3" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe3"><i class="fa fa-check"></i><b>2.3</b> Recipe 3 - Importing data</a></li>
+<li class="chapter" data-level="2.4" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe4"><i class="fa fa-check"></i><b>2.4</b> Recipe 4 - Rename columns</a></li>
+<li class="chapter" data-level="2.5" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe5"><i class="fa fa-check"></i><b>2.5</b> Recipe 5 - Filter rows</a></li>
+<li class="chapter" data-level="2.6" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe6"><i class="fa fa-check"></i><b>2.6</b> Recipe 6 - Create new variables</a></li>
+<li class="chapter" data-level="2.7" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe7"><i class="fa fa-check"></i><b>2.7</b> Recipe 7 - Group by function</a></li>
+<li class="chapter" data-level="2.8" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe8"><i class="fa fa-check"></i><b>2.8</b> Recipe 8 - Aggregate data</a></li>
+<li class="chapter" data-level="2.9" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe9"><i class="fa fa-check"></i><b>2.9</b> Recipe 9 - Long to wide</a></li>
+<li class="chapter" data-level="2.10" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe10"><i class="fa fa-check"></i><b>2.10</b> Recipe 10 - Wide to long</a></li>
+<li class="chapter" data-level="2.11" data-path="cleaning-data.html"><a href="cleaning-data.html#conclusion"><i class="fa fa-check"></i><b>2.11</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploration.html"><a href="exploration.html"><i class="fa fa-check"></i><b>3</b> Exploration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="exploration.html"><a href="exploration.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.1</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exploration.html"><a href="exploration.html#what-your-data-needs-to-look-like"><i class="fa fa-check"></i><b>3.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exploration.html"><a href="exploration.html#syntax"><i class="fa fa-check"></i><b>3.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="exploration.html"><a href="exploration.html#qq-plot"><i class="fa fa-check"></i><b>3.2</b> QQ plot</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="exploration.html"><a href="exploration.html#syntax-1"><i class="fa fa-check"></i><b>3.2.1</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="simpler-statistics.html"><a href="simpler-statistics.html"><i class="fa fa-check"></i><b>4</b> Simpler statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#onettest"><i class="fa fa-check"></i><b>4.1</b> One-sample t test</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-1"><i class="fa fa-check"></i><b>4.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-2"><i class="fa fa-check"></i><b>4.1.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.1.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent"><i class="fa fa-check"></i><b>4.1.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#twottest"><i class="fa fa-check"></i><b>4.2</b> Independent t-test</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-2"><i class="fa fa-check"></i><b>4.2.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-3"><i class="fa fa-check"></i><b>4.2.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.2.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent-1"><i class="fa fa-check"></i><b>4.2.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#pairedttest"><i class="fa fa-check"></i><b>4.3</b> Paired t-test</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-3"><i class="fa fa-check"></i><b>4.3.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-4"><i class="fa fa-check"></i><b>4.3.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.3.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent-2"><i class="fa fa-check"></i><b>4.3.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="simpler-statistics.html"><a href="simpler-statistics.html#oneBetwtest"><i class="fa fa-check"></i><b>4.4</b> One-way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-4"><i class="fa fa-check"></i><b>4.4.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-5"><i class="fa fa-check"></i><b>4.4.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="simpler-statistics.html"><a href="simpler-statistics.html#oneWithtest"><i class="fa fa-check"></i><b>4.5</b> One-way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-5"><i class="fa fa-check"></i><b>4.5.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-6"><i class="fa fa-check"></i><b>4.5.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="simpler-statistics.html"><a href="simpler-statistics.html#corr"><i class="fa fa-check"></i><b>4.6</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-6"><i class="fa fa-check"></i><b>4.6.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-7"><i class="fa fa-check"></i><b>4.6.2</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tougher-statistics.html"><a href="tougher-statistics.html"><i class="fa fa-check"></i><b>5</b> Tougher statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#twoBetwtest"><i class="fa fa-check"></i><b>5.1</b> Two (or more) way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-7"><i class="fa fa-check"></i><b>5.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.1.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-8"><i class="fa fa-check"></i><b>5.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#twoWithtest"><i class="fa fa-check"></i><b>5.2</b> Two (or more) way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-8"><i class="fa fa-check"></i><b>5.2.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-9"><i class="fa fa-check"></i><b>5.2.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tougher-statistics.html"><a href="tougher-statistics.html#RManovatest"><i class="fa fa-check"></i><b>5.3</b> Repeated (within-between) measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-9"><i class="fa fa-check"></i><b>5.3.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-10"><i class="fa fa-check"></i><b>5.3.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tougher-statistics.html"><a href="tougher-statistics.html#lmmtest"><i class="fa fa-check"></i><b>5.4</b> Linear mixed model</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-10"><i class="fa fa-check"></i><b>5.4.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-11"><i class="fa fa-check"></i><b>5.4.2</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>6</b> Reporting</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reporting.html"><a href="reporting.html#report-onettest"><i class="fa fa-check"></i><b>6.1</b> One-sample t test</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="reporting.html"><a href="reporting.html#reporting-1"><i class="fa fa-check"></i><b>6.1.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="reporting.html"><a href="reporting.html#report-twottest"><i class="fa fa-check"></i><b>6.2</b> Independent t-test</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="reporting.html"><a href="reporting.html#reporting-2"><i class="fa fa-check"></i><b>6.2.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="reporting.html"><a href="reporting.html#report-pairedttest"><i class="fa fa-check"></i><b>6.3</b> Paired t-test</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="reporting.html"><a href="reporting.html#reporting-3"><i class="fa fa-check"></i><b>6.3.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="reporting.html"><a href="reporting.html#report-oneBetwtest"><i class="fa fa-check"></i><b>6.4</b> One-way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="reporting.html"><a href="reporting.html#reporting-4"><i class="fa fa-check"></i><b>6.4.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="reporting.html"><a href="reporting.html#report-oneWithtest"><i class="fa fa-check"></i><b>6.5</b> One-way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="reporting.html"><a href="reporting.html#reporting-5"><i class="fa fa-check"></i><b>6.5.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="reporting.html"><a href="reporting.html#report-corr"><i class="fa fa-check"></i><b>6.6</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="reporting.html"><a href="reporting.html#reporting-6"><i class="fa fa-check"></i><b>6.6.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="reporting.html"><a href="reporting.html#report-twoBetwtest"><i class="fa fa-check"></i><b>6.7</b> Two (or more) way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="reporting.html"><a href="reporting.html#reporting-7"><i class="fa fa-check"></i><b>6.7.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="reporting.html"><a href="reporting.html#report-twoWithtest"><i class="fa fa-check"></i><b>6.8</b> Two (or more) way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="reporting.html"><a href="reporting.html#reporting-8"><i class="fa fa-check"></i><b>6.8.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="reporting.html"><a href="reporting.html#report-RManovatest"><i class="fa fa-check"></i><b>6.9</b> Repeated (within-between) measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="reporting.html"><a href="reporting.html#reporting-9"><i class="fa fa-check"></i><b>6.9.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="reporting.html"><a href="reporting.html#report-lmmtest"><i class="fa fa-check"></i><b>6.10</b> Linear mixed model</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="reporting.html"><a href="reporting.html#reporting-10"><i class="fa fa-check"></i><b>6.10.1</b> Reporting</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics done ALMOST right - an SPSS syntax recipe book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reporting" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Reporting</h1>
+<p>There is probably a tonne of guidelines to how one should report statistical findings in the Results section. How I report below is what I commonly do which has served me well. I believe it very closely approximates many guideline recommendations.</p>
+<div id="report-onettest" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> One-sample t test</h2>
+<p>For running the test, please see chapter <a href="simpler-statistics.html#onettest">4.1</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:1sample-ttest">6.1</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:1sample-ttest"></span>
+<img src="images/one_sample_ttest.png" alt="One sample t test" width="100%" />
+<p class="caption">
+Figure 6.1: One sample t test
+</p>
+</div>
+<div id="reporting-1" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Reporting</h3>
+<p>Ankle torque in the present cohort was statistically significantly greater than the hypothesized mean by 24.11 Nm/kg (t = 7.14, P &lt; 0.001, 95%CI 17.09 to 31.14 Nm/kg).</p>
+</div>
+</div>
+<div id="report-twottest" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Independent t-test</h2>
+<p>For running the test, please see chapter <a href="simpler-statistics.html#twottest">4.2</a>.After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:two-sample-ttest">6.2</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:two-sample-ttest"></span>
+<img src="images/two_sample_ttest.png" alt="Two sample t test" width="100%" />
+<p class="caption">
+Figure 6.2: Two sample t test
+</p>
+</div>
+<div id="reporting-2" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Reporting</h3>
+<p>Ankle torque in group <code>G</code> was not statistically different from group <code>T</code>, with a mean difference of -1.49 Nm/kg (t = -1.49, P = 0.833, 95%CI -15.97 to 13.00 Nm/kg).</p>
+</div>
+</div>
+<div id="report-pairedttest" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Paired t-test</h2>
+<p>For running the test, please see chapter <a href="simpler-statistics.html#pairedttest">4.3</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:paired-ttest">6.3</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:paired-ttest"></span>
+<img src="images/paired_ttest.png" alt="Paired t test" width="100%" />
+<p class="caption">
+Figure 6.3: Paired t test
+</p>
+</div>
+<div id="reporting-3" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Reporting</h3>
+<p>Ankle torque was 24.58 Nm/kg (t = 4.95, P &lt; 0.001, 95%CI 13.34 to 35.81 Nm/kg) more after training than before training.</p>
+</div>
+</div>
+<div id="report-oneBetwtest" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> One-way between ANOVA</h2>
+<p>For running the test, please see chapter <a href="simpler-statistics.html#oneBetwtest">4.4</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:one-between-anova-primary">6.4</a> and <a href="reporting.html#fig:one-between-anova-posthoc">6.5</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:one-between-anova-primary"></span>
+<img src="images/one_between_anova_primary.png" alt="One-way between ANOVA primary results" width="100%" />
+<p class="caption">
+Figure 6.4: One-way between ANOVA primary results
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:one-between-anova-posthoc"></span>
+<img src="images/one_between_anova_posthoc.png" alt="One-way between ANOVA post hoc" width="100%" />
+<p class="caption">
+Figure 6.5: One-way between ANOVA post hoc
+</p>
+</div>
+<div id="reporting-4" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Reporting</h3>
+<p>There was a significant effect of group on ankle torque (F = 5.06, P = 0.013). Group 2 was 24.58 Nm/kg (P = 0.004, 95%CI 8.73 to 40.42 Nm/kg) greater than group one, but was not significantly different from group 3 (P = 0.156, mean difference of 10.80 95%CI -4.38 to 25.98 Nm/kg). Group 3 was not significantly different from group 1 (P = 0.074, mean difference of 13.77 95%CI -1.40 to 28.95 Nm/kg).</p>
+</div>
+</div>
+<div id="report-oneWithtest" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> One-way within ANOVA</h2>
+<p>For running the test, please see chapter <a href="simpler-statistics.html#oneWithtest">4.5</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:one-within-anova-primary">6.6</a> and <a href="reporting.html#fig:one-within-anova-posthoc">6.7</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:one-within-anova-primary"></span>
+<img src="images/one_within_anova_primary.png" alt="One-way within ANOVA primary results" width="100%" />
+<p class="caption">
+Figure 6.6: One-way within ANOVA primary results
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:one-within-anova-posthoc"></span>
+<img src="images/one_within_anova_posthoc.png" alt="One-way within ANOVA post hoc" width="100%" />
+<p class="caption">
+Figure 6.7: One-way within ANOVA post hoc
+</p>
+</div>
+<div id="reporting-5" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Reporting</h3>
+<p>There was a significant effect of session on ankle torque (F = 37.56, P &lt; 0.001). Ankle torque in session 3 (<code>after</code>) was significantly greater than in session 2 (<code>post</code>) and 1 (<code>pre</code>), by 23.62 Nm/kg (P &lt; 0.001, 95% CI 17.10 to 30.15 Nm/kg) and 19.67 Nm/kg (P &lt; 0.001, 95% CI 13.43 to 25.92 Nm/kg), respectively. Ankle torque in session 2 was not significantly different from 1 (P = 0.142, mean difference of -3.95 95%CI -9.34 to 1.44 Nm/kg).</p>
+</div>
+</div>
+<div id="report-corr" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Correlation</h2>
+<p>For running the test, please see chapter <a href="simpler-statistics.html#corr">4.6</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:corr-test">6.8</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:corr-test"></span>
+<img src="images/corr_test.png" alt="Correlation" width="100%" />
+<p class="caption">
+Figure 6.8: Correlation
+</p>
+</div>
+<div id="reporting-6" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Reporting</h3>
+<p>Ankle torque was significant correlated with ankle work with a magnitude of 0.99 (P &lt; 0.001, 95%CI 0.98 to 1.00).</p>
+</div>
+</div>
+<div id="report-twoBetwtest" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Two (or more) way between ANOVA</h2>
+<p>For running the test, please see chapter <a href="tougher-statistics.html#twoBetwtest">5.1</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:two-between-anova-primary">6.9</a> and <a href="reporting.html#fig:two-between-anova-posthoc">6.10</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:two-between-anova-primary"></span>
+<img src="images/two_between_anova_primary.png" alt="Two-way between ANOVA primary results" width="100%" />
+<p class="caption">
+Figure 6.9: Two-way between ANOVA primary results
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:two-between-anova-posthoc"></span>
+<img src="images/two_between_anova_posthoc.png" alt="Two-way between ANOVA post hoc" width="100%" />
+<p class="caption">
+Figure 6.10: Two-way between ANOVA post hoc
+</p>
+</div>
+<div id="reporting-7" class="section level3" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Reporting</h3>
+<p>There was a non-significant group by supplement interaction on ankle torque (F = 0.257, P = 0.615). There was a significant main effect of supplements (F = 17.093, P &lt; 0.001), where individuals taking supplements had 21.89 Nm/kg (95%CI 11.19 to 32.59 Nm/kg) greater ankle torque than those not taking supplements. There was no significant main effect of groups on ankle torque (F = 0.079, P = 0.780).</p>
+</div>
+</div>
+<div id="report-twoWithtest" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> Two (or more) way within ANOVA</h2>
+<p>For running the test, please see chapter <a href="tougher-statistics.html#twoWithtest">5.2</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:two-within-anova-primary">6.11</a> and <a href="reporting.html#fig:two-within-anova-posthoc">6.12</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:two-within-anova-primary"></span>
+<img src="images/two_within_anova_primary.png" alt="Two-way between ANOVA primary results" width="100%" />
+<p class="caption">
+Figure 6.11: Two-way between ANOVA primary results
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:two-within-anova-posthoc"></span>
+<img src="images/two_within_anova_posthoc.png" alt="Two-way between ANOVA post hoc" width="100%" />
+<p class="caption">
+Figure 6.12: Two-way between ANOVA post hoc
+</p>
+</div>
+<div id="reporting-8" class="section level3" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Reporting</h3>
+<p>There was a non-significant session by side interaction on ankle torque (F = 0.303, P = 0.588). There was a significant main effect of sessions (F = 60.432, P &lt; 0.001), where ankle torque was greater in session 1 than in session 2 by 21.65 Nm/kg (95%CI 15.86 to 27.44 Nm/kg). There was no significant main effect of side on ankle torque (F = 3.083, P = 0.094).</p>
+</div>
+</div>
+<div id="report-RManovatest" class="section level2" number="6.9">
+<h2><span class="header-section-number">6.9</span> Repeated (within-between) measures ANOVA</h2>
+<p>For running the test, please see chapter <a href="tougher-statistics.html#RManovatest">5.3</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:rm-anova-primary1">6.13</a>, <a href="reporting.html#fig:rm-anova-primary2">6.14</a> and <a href="reporting.html#fig:rm-anova-posthoc">6.15</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:rm-anova-primary1"></span>
+<img src="images/rm_anova_primary1.png" alt="Repeated measures ANOVA primary results 1" width="100%" />
+<p class="caption">
+Figure 6.13: Repeated measures ANOVA primary results 1
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:rm-anova-primary2"></span>
+<img src="images/rm_anova_primary2.png" alt="Repeated measures ANOVA primary results 2" width="100%" />
+<p class="caption">
+Figure 6.14: Repeated measures ANOVA primary results 2
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:rm-anova-posthoc"></span>
+<img src="images/rm_anova_posthoc.png" alt="Repeated measures ANOVA post hoc" width="100%" />
+<p class="caption">
+Figure 6.15: Repeated measures ANOVA post hoc
+</p>
+</div>
+<div id="reporting-9" class="section level3" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> Reporting</h3>
+<p>There was a non-significant group by session interaction effect on ankle torque (F = 0.918, P = 0.349). There was a significant main effect of sessions (F = 61.052, P &lt; 0.001), where ankle torque was greater in session 2 than in session 1 by 21.89 Nm/kg (95%CI 16.05 to 27.74 Nm/kg). There was no significant main effect of group on ankle torque (F = 0.046, P = 0.833).</p>
+</div>
+</div>
+<div id="report-lmmtest" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Linear mixed model</h2>
+<p>For running the test, please see chapter <a href="tougher-statistics.html#lmmtest">5.4</a>. After running the test, this is what the result looks like in Figure <a href="reporting.html#fig:rm-anova-primary1">6.13</a>, <a href="reporting.html#fig:rm-anova-primary2">6.14</a> and <a href="reporting.html#fig:rm-anova-posthoc">6.15</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:mixed-primary"></span>
+<img src="images/mixedmodel_primary.png" alt="Linear mixed model primary results" width="100%" />
+<p class="caption">
+Figure 6.16: Linear mixed model primary results
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:mixed-posthoc"></span>
+<img src="images/mixedmodel_posthoc.png" alt="Linear mixed model posthoc results" width="100%" />
+<p class="caption">
+Figure 6.17: Linear mixed model posthoc results
+</p>
+</div>
+<div id="reporting-10" class="section level3" number="6.10.1">
+<h3><span class="header-section-number">6.10.1</span> Reporting</h3>
+<p>There was a non-significant group by session interaction effect on ankle torque (F = 0.918, P = 0.349). There was a significant main effect of sessions (F = 61.052, P &lt; 0.001), where ankle torque was greater in session 2 than in session 1 by 21.89 Nm/kg (95%CI 16.05 to 27.74 Nm/kg). There was no significant main effect of group on ankle torque (F = 0.046, P = 0.833).</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tougher-statistics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

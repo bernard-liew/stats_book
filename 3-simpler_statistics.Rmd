@@ -1,0 +1,399 @@
+```{r, echo = FALSE, include = FALSE}
+library (tidyverse)
+library (kableExtra)
+library (downloadthis)
+```
+
+
+```{r, echo = FALSE, include = FALSE}
+df2 <- rio::import ("data/df2.xlsx")
+names (df2) <- c("subj",
+                 "group",
+                 "session",
+                 "side",
+                 "set",
+                 "rep",
+                 "atorq",
+                 "awork",
+                 "apow",
+                 "ktorq",
+                 "kwork",
+                 "kpow")
+```
+
+
+# Simpler statistics
+
+## One-sample t test {#onettest}
+
+**Hypothesis**  Is the ankle torque of my sample really different from 60 Nm/kg?
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  group_by(subj) %>%
+  summarize (atorq = mean (atorq))
+
+```
+
+```{r, eval  = FALSE , echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/one_sampleT_data.xlsx")
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. `/VARIABLES`: Change the value `atorq` to the name of your dependent variable
+
+2. `/TESTVAL`: Change the value to the mean you want to compare it against. In this example, I am asking *is my ankle torque of my sample really different from 0?*
+
+```{r, eval = FALSE}
+T-TEST
+  /TESTVAL=60
+  /MISSING=ANALYSIS
+  /VARIABLES=atorq
+  /ES DISPLAY(TRUE)
+  /CRITERIA=CI(.95).
+```
+
+For reporting, please see Chapter \@ref(report-onettest).
+
+### Non parametric equivalent
+
+Arguments to care about:
+
+1. Change the value `atorq` to the name of your dependent variable
+
+```{r, eval = FALSE}
+NPTESTS 
+  /ONESAMPLE TEST (atorq) 
+  /MISSING SCOPE=ANALYSIS USERMISSING=EXCLUDE
+  /CRITERIA ALPHA=0.05 CILEVEL=95  SEED=RANDOM.
+```
+
+
+## Independent t-test{#twottest}
+
+**Hypothesis**  Is the ankle torque from one group different from a separate group?
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  group_by(subj, group) %>%
+  summarize (atorq = mean (atorq)) 
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/two_sampleT_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. `GROUPS`: Change the variable `group` to the name of your independent grouping variable. Also change `G` and `T` to the names of the levels within the grouping variable
+
+2. `/VARIABLES`: Change `atorq` to the name of your dependent variable. 
+
+```{r, eval = FALSE}
+T-TEST GROUPS=group('G' 'T')
+  /MISSING=ANALYSIS
+  /VARIABLES=atorq
+  /ES DISPLAY(TRUE)
+  /CRITERIA=CI(.95).
+```
+
+For reporting, please see Chapter \@ref(report-twottest).
+
+
+### Non parametric equivalent
+
+Arguments to care about:
+
+1. Change the value `atorq` to the name of your dependent variable, and `group` to the name of your independent variable.
+
+```{r, eval = FALSE}
+NPTESTS 
+  /INDEPENDENT TEST (atorq) GROUP (group) 
+  /MISSING SCOPE=ANALYSIS USERMISSING=EXCLUDE
+  /CRITERIA ALPHA=0.05  CILEVEL=95.
+```
+
+
+## Paired t-test{#pairedttest}
+
+**Hypothesis**  Is the ankle torque in the same group of subjects different after compared to before a training program?
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  filter (group == "G") %>%
+  group_by(subj, session) %>%
+  summarize (atorq = mean (atorq)) %>% 
+  pivot_wider(names_from = "session",
+              values_from = "atorq")
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/paired_sampleT_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. `PAIRS`: Change the variables `POST` and `PRE` to the name of the paired variables you are testing.  
+
+```{r, eval = FALSE}
+T-TEST PAIRS=POST WITH PRE (PAIRED)
+  /ES DISPLAY(TRUE) STANDARDIZER(CORRECTED_SD)
+  /CRITERIA=CI(.9500)
+  /MISSING=ANALYSIS.
+```
+
+For reporting, please see Chapter \@ref(report-pairedttest).
+
+### Non parametric equivalent
+
+Arguments to care about:
+
+1. Change the variables `POST` and `PRE` to the name of the paired variables you are testing. 
+
+```{r, eval = FALSE}
+NPTESTS 
+  /RELATED TEST(POST PRE) 
+  /MISSING SCOPE=ANALYSIS USERMISSING=EXCLUDE
+  /CRITERIA ALPHA=0.05  CILEVEL=95.
+```
+
+
+## One-way between ANOVA{#oneBetwtest}
+
+**Hypothesis**  Is the ankle torque different across the three independent groups? If yes, where do the differences lie? 
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  mutate (group = ifelse (group == "G" & session == "PRE",
+                          1, ifelse (group == "G" & session == "POST",
+                                     2, 3)))  %>%
+  group_by(subj, group) %>%
+  summarize (atorq = mean (atorq)) 
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/oneAnova_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. Change the variables `atorq` and `group` to the names of your dependent and independent variables, respectively
+
+```{r, eval = FALSE}
+ONEWAY atorq BY group
+  /ES=OVERALL
+  /STATISTICS DESCRIPTIVES 
+  /MISSING ANALYSIS
+  /CRITERIA=CILEVEL(0.95)
+  /POSTHOC=LSD T3 ALPHA(0.05).
+```
+
+For reporting, please see Chapter \@ref(report-oneBetwtest).
+
+## One-way within ANOVA{#oneWithtest} 
+
+**Hypothesis**  Is the ankle torque of the same group different across multiple sessions? If yes, where do the differences lie? 
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  mutate (session = ifelse (session == "PRE" & side == "R",
+                          "pre", ifelse (session == "PRE" & side == "L",
+                                     "post", "after"))) %>%
+  group_by(subj, session) %>%
+  summarize (atorq = mean (atorq)) %>%
+  pivot_wider(names_from = c("session"),
+              values_from = "atorq")
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/oneWithinAnova_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. `GLM`. Add the names of all the variables (i.e. `pre`, `post`, `after`). These three variables actually represent the three categories of a common variable, which in this context we call `session`. You can given any name to this common variable.
+
+2. `/WSFACTOR`. Change `session` to any name you want to denote the categories within your repeated measures.
+
+3. `/MEASURE`. Change `atorq` to the name of your dependent variable. 
+
+4. `/EMMEANS`. Change `session` to any name you want to denote the categories within your repeated measures.
+
+5. `/WSDESIGN`. Change `session` to any name you want to denote the categories within your repeated measures.
+
+```{r, eval = FALSE}
+GLM pre post after
+  /WSFACTOR=session 3 Polynomial 
+  /MEASURE=atorq 
+  /METHOD=SSTYPE(3)
+  /EMMEANS=TABLES(session) COMPARE ADJ(LSD)
+  /PRINT=ETASQ PARAMETER HOMOGENEITY 
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=session.
+```
+
+For reporting, please see Chapter \@ref(report-oneWithtest).
+
+## Correlation{#corr} 
+
+**Hypothesis** Are the variables of ankle torque, ankle work, knee torque, and knee work correlated with each other? 
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  slice (1:50) %>%
+  select (subj, atorq:kpow) %>%
+  mutate (subj = 1:50)
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/corr_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. `/VARIABLE`. Add the names of all the variables (i.e. `atorq`, `awork`, `apow`, `ktorq`) you want to find a correlation. 
+
+```{r, eval = FALSE}
+CORRELATIONS
+  /VARIABLES=atorq awork apow ktorq
+  /PRINT=TWOTAIL NOSIG FULL
+  /CI CILEVEL(95) BIAS(TRUE)
+  /MISSING=PAIRWISE.
+
+```
+
+
+For reporting, please see Chapter \@ref(report-corr).

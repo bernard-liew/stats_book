@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Tougher statistics | Statistics done ALMOST right - an SPSS syntax recipe book</title>
+  <meta name="description" content="Chapter 5 Tougher statistics | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Tougher statistics | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/images/cover_image.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Tougher statistics | Statistics done ALMOST right - an SPSS syntax recipe book" />
+  
+  
+  <meta name="twitter:image" content="/images/cover_image.png" />
+
+<meta name="author" content="Bernard Liew" />
+
+
+<meta name="date" content="2022-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="simpler-statistics.html"/>
+<link rel="next" href="reporting.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<script src="libs/font-awesome-5.13.0/js/script.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics done ALMOST right - an SPSS syntax recipe book</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#where-did-this-book-come-from"><i class="fa fa-check"></i><b>1.1</b> Where did this book come from?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-this-book-offers"><i class="fa fa-check"></i><b>1.2</b> What this book offers?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#who-this-book-isnt-for"><i class="fa fa-check"></i><b>1.3</b> Who this book isn’t for?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="cleaning-data.html"><a href="cleaning-data.html"><i class="fa fa-check"></i><b>2</b> Cleaning data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe1"><i class="fa fa-check"></i><b>2.1</b> Recipe 1 - Paste to syntax</a></li>
+<li class="chapter" data-level="2.2" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe2"><i class="fa fa-check"></i><b>2.2</b> Recipe 2 - Setting your work directory</a></li>
+<li class="chapter" data-level="2.3" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe3"><i class="fa fa-check"></i><b>2.3</b> Recipe 3 - Importing data</a></li>
+<li class="chapter" data-level="2.4" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe4"><i class="fa fa-check"></i><b>2.4</b> Recipe 4 - Rename columns</a></li>
+<li class="chapter" data-level="2.5" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe5"><i class="fa fa-check"></i><b>2.5</b> Recipe 5 - Filter rows</a></li>
+<li class="chapter" data-level="2.6" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe6"><i class="fa fa-check"></i><b>2.6</b> Recipe 6 - Create new variables</a></li>
+<li class="chapter" data-level="2.7" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe7"><i class="fa fa-check"></i><b>2.7</b> Recipe 7 - Group by function</a></li>
+<li class="chapter" data-level="2.8" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe8"><i class="fa fa-check"></i><b>2.8</b> Recipe 8 - Aggregate data</a></li>
+<li class="chapter" data-level="2.9" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe9"><i class="fa fa-check"></i><b>2.9</b> Recipe 9 - Long to wide</a></li>
+<li class="chapter" data-level="2.10" data-path="cleaning-data.html"><a href="cleaning-data.html#Recipe10"><i class="fa fa-check"></i><b>2.10</b> Recipe 10 - Wide to long</a></li>
+<li class="chapter" data-level="2.11" data-path="cleaning-data.html"><a href="cleaning-data.html#conclusion"><i class="fa fa-check"></i><b>2.11</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploration.html"><a href="exploration.html"><i class="fa fa-check"></i><b>3</b> Exploration</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="exploration.html"><a href="exploration.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.1</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="exploration.html"><a href="exploration.html#what-your-data-needs-to-look-like"><i class="fa fa-check"></i><b>3.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="exploration.html"><a href="exploration.html#syntax"><i class="fa fa-check"></i><b>3.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="exploration.html"><a href="exploration.html#qq-plot"><i class="fa fa-check"></i><b>3.2</b> QQ plot</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="exploration.html"><a href="exploration.html#syntax-1"><i class="fa fa-check"></i><b>3.2.1</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="simpler-statistics.html"><a href="simpler-statistics.html"><i class="fa fa-check"></i><b>4</b> Simpler statistics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#onettest"><i class="fa fa-check"></i><b>4.1</b> One-sample t test</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-1"><i class="fa fa-check"></i><b>4.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.1.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-2"><i class="fa fa-check"></i><b>4.1.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.1.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent"><i class="fa fa-check"></i><b>4.1.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#twottest"><i class="fa fa-check"></i><b>4.2</b> Independent t-test</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-2"><i class="fa fa-check"></i><b>4.2.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-3"><i class="fa fa-check"></i><b>4.2.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.2.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent-1"><i class="fa fa-check"></i><b>4.2.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#pairedttest"><i class="fa fa-check"></i><b>4.3</b> Paired t-test</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-3"><i class="fa fa-check"></i><b>4.3.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-4"><i class="fa fa-check"></i><b>4.3.2</b> Syntax</a></li>
+<li class="chapter" data-level="4.3.3" data-path="simpler-statistics.html"><a href="simpler-statistics.html#non-parametric-equivalent-2"><i class="fa fa-check"></i><b>4.3.3</b> Non parametric equivalent</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="simpler-statistics.html"><a href="simpler-statistics.html#oneBetwtest"><i class="fa fa-check"></i><b>4.4</b> One-way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-4"><i class="fa fa-check"></i><b>4.4.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.4.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-5"><i class="fa fa-check"></i><b>4.4.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="simpler-statistics.html"><a href="simpler-statistics.html#oneWithtest"><i class="fa fa-check"></i><b>4.5</b> One-way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-5"><i class="fa fa-check"></i><b>4.5.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-6"><i class="fa fa-check"></i><b>4.5.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="simpler-statistics.html"><a href="simpler-statistics.html#corr"><i class="fa fa-check"></i><b>4.6</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="simpler-statistics.html"><a href="simpler-statistics.html#what-your-data-needs-to-look-like-6"><i class="fa fa-check"></i><b>4.6.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="4.6.2" data-path="simpler-statistics.html"><a href="simpler-statistics.html#syntax-7"><i class="fa fa-check"></i><b>4.6.2</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tougher-statistics.html"><a href="tougher-statistics.html"><i class="fa fa-check"></i><b>5</b> Tougher statistics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#twoBetwtest"><i class="fa fa-check"></i><b>5.1</b> Two (or more) way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-7"><i class="fa fa-check"></i><b>5.1.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.1.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-8"><i class="fa fa-check"></i><b>5.1.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#twoWithtest"><i class="fa fa-check"></i><b>5.2</b> Two (or more) way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-8"><i class="fa fa-check"></i><b>5.2.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-9"><i class="fa fa-check"></i><b>5.2.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tougher-statistics.html"><a href="tougher-statistics.html#RManovatest"><i class="fa fa-check"></i><b>5.3</b> Repeated (within-between) measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-9"><i class="fa fa-check"></i><b>5.3.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.3.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-10"><i class="fa fa-check"></i><b>5.3.2</b> Syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tougher-statistics.html"><a href="tougher-statistics.html#lmmtest"><i class="fa fa-check"></i><b>5.4</b> Linear mixed model</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="tougher-statistics.html"><a href="tougher-statistics.html#what-your-data-needs-to-look-like-10"><i class="fa fa-check"></i><b>5.4.1</b> What your data needs to look like?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tougher-statistics.html"><a href="tougher-statistics.html#syntax-11"><i class="fa fa-check"></i><b>5.4.2</b> Syntax</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>6</b> Reporting</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reporting.html"><a href="reporting.html#report-onettest"><i class="fa fa-check"></i><b>6.1</b> One-sample t test</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="reporting.html"><a href="reporting.html#reporting-1"><i class="fa fa-check"></i><b>6.1.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="reporting.html"><a href="reporting.html#report-twottest"><i class="fa fa-check"></i><b>6.2</b> Independent t-test</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="reporting.html"><a href="reporting.html#reporting-2"><i class="fa fa-check"></i><b>6.2.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="reporting.html"><a href="reporting.html#report-pairedttest"><i class="fa fa-check"></i><b>6.3</b> Paired t-test</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="reporting.html"><a href="reporting.html#reporting-3"><i class="fa fa-check"></i><b>6.3.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="reporting.html"><a href="reporting.html#report-oneBetwtest"><i class="fa fa-check"></i><b>6.4</b> One-way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="reporting.html"><a href="reporting.html#reporting-4"><i class="fa fa-check"></i><b>6.4.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="reporting.html"><a href="reporting.html#report-oneWithtest"><i class="fa fa-check"></i><b>6.5</b> One-way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="reporting.html"><a href="reporting.html#reporting-5"><i class="fa fa-check"></i><b>6.5.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="reporting.html"><a href="reporting.html#report-corr"><i class="fa fa-check"></i><b>6.6</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="reporting.html"><a href="reporting.html#reporting-6"><i class="fa fa-check"></i><b>6.6.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="reporting.html"><a href="reporting.html#report-twoBetwtest"><i class="fa fa-check"></i><b>6.7</b> Two (or more) way between ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="reporting.html"><a href="reporting.html#reporting-7"><i class="fa fa-check"></i><b>6.7.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="reporting.html"><a href="reporting.html#report-twoWithtest"><i class="fa fa-check"></i><b>6.8</b> Two (or more) way within ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="reporting.html"><a href="reporting.html#reporting-8"><i class="fa fa-check"></i><b>6.8.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="reporting.html"><a href="reporting.html#report-RManovatest"><i class="fa fa-check"></i><b>6.9</b> Repeated (within-between) measures ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="reporting.html"><a href="reporting.html#reporting-9"><i class="fa fa-check"></i><b>6.9.1</b> Reporting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="reporting.html"><a href="reporting.html#report-lmmtest"><i class="fa fa-check"></i><b>6.10</b> Linear mixed model</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="reporting.html"><a href="reporting.html#reporting-10"><i class="fa fa-check"></i><b>6.10.1</b> Reporting</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics done ALMOST right - an SPSS syntax recipe book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tougher-statistics" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Tougher statistics</h1>
+<div id="twoBetwtest" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Two (or more) way between ANOVA</h2>
+<p><strong>Hypothesis</strong> Do different strength training methods (<code>G</code> and <code>T</code>) result in different ankle torque, and is the difference dependent on supplement intake (<code>NO</code> and <code>YES</code>)?</p>
+<div id="what-your-data-needs-to-look-like-7" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+supplement
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+atorq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+68.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+79.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+46.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+61.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+62.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+81.81250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+62.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+98.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+63.95582
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+95.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+84.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+114.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+70.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+98.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+100.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+131.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+80.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+98.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+62.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+71.81250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+79.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+78.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+75.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+74.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+95.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+73.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+98.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+92.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+130.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+66.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+86.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+64.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+82.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+86.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+110.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+81.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+103.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+65.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+123.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+93.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+110.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:right;">
+50.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:right;">
+62.12500
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-8" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p>Replace all occurrences of <code>atorq</code> with the name of your dependent variable.</p></li>
+<li><p>Replace all occurrences of <code>group</code> and <code>supplement</code> with the names of your independent variables, respectively.</p></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tougher-statistics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>UNIANOVA atorq BY group supplement</span>
+<span id="cb21-2"><a href="tougher-statistics.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>METHOD<span class="ot">=</span><span class="fu">SSTYPE</span>(<span class="dv">3</span>)</span>
+<span id="cb21-3"><a href="tougher-statistics.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INTERCEPT<span class="ot">=</span>INCLUDE</span>
+<span id="cb21-4"><a href="tougher-statistics.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb21-5"><a href="tougher-statistics.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(supplement) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb21-6"><a href="tougher-statistics.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group<span class="sc">*</span>supplement) <span class="fu">COMPARE</span>(group) <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb21-7"><a href="tougher-statistics.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group<span class="sc">*</span>supplement) <span class="fu">COMPARE</span>(supplement) <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb21-8"><a href="tougher-statistics.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PRINT ETASQ PARAMETER HOMOGENEITY</span>
+<span id="cb21-9"><a href="tougher-statistics.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">ALPHA</span>(.<span class="dv">05</span>)</span>
+<span id="cb21-10"><a href="tougher-statistics.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>DESIGN<span class="ot">=</span>group supplement group<span class="sc">*</span>supplement.</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-twoBetwtest">6.7</a>.</p>
+</div>
+</div>
+<div id="twoWithtest" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Two (or more) way within ANOVA</h2>
+<p><strong>Hypothesis</strong> Does strength training result in an improvement over a training session (<code>PRE</code>, <code>POST</code>) in the same group of people, and is the improvement dependent upon side (<code>L</code>, <code>R</code>)?</p>
+<div id="what-your-data-needs-to-look-like-8" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+POST_L
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+POST_R
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PRE_L
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PRE_R
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+77.875
+</td>
+<td style="text-align:right;">
+81.875
+</td>
+<td style="text-align:right;">
+65.375
+</td>
+<td style="text-align:right;">
+71.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+60.000
+</td>
+<td style="text-align:right;">
+62.750
+</td>
+<td style="text-align:right;">
+40.500
+</td>
+<td style="text-align:right;">
+52.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+73.375
+</td>
+<td style="text-align:right;">
+90.250
+</td>
+<td style="text-align:right;">
+53.375
+</td>
+<td style="text-align:right;">
+70.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+98.500
+</td>
+<td style="text-align:right;">
+99.250
+</td>
+<td style="text-align:right;">
+59.500
+</td>
+<td style="text-align:right;">
+66.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+99.625
+</td>
+<td style="text-align:right;">
+90.500
+</td>
+<td style="text-align:right;">
+64.750
+</td>
+<td style="text-align:right;">
+63.16164
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+112.625
+</td>
+<td style="text-align:right;">
+116.500
+</td>
+<td style="text-align:right;">
+82.750
+</td>
+<td style="text-align:right;">
+87.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+97.375
+</td>
+<td style="text-align:right;">
+99.750
+</td>
+<td style="text-align:right;">
+68.375
+</td>
+<td style="text-align:right;">
+72.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+126.500
+</td>
+<td style="text-align:right;">
+136.250
+</td>
+<td style="text-align:right;">
+104.125
+</td>
+<td style="text-align:right;">
+96.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+90.000
+</td>
+<td style="text-align:right;">
+107.250
+</td>
+<td style="text-align:right;">
+91.375
+</td>
+<td style="text-align:right;">
+70.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+65.875
+</td>
+<td style="text-align:right;">
+77.750
+</td>
+<td style="text-align:right;">
+60.000
+</td>
+<td style="text-align:right;">
+65.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+86.375
+</td>
+<td style="text-align:right;">
+71.375
+</td>
+<td style="text-align:right;">
+78.625
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+79.500
+</td>
+<td style="text-align:right;">
+70.250
+</td>
+<td style="text-align:right;">
+82.375
+</td>
+<td style="text-align:right;">
+68.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+99.500
+</td>
+<td style="text-align:right;">
+92.375
+</td>
+<td style="text-align:right;">
+81.750
+</td>
+<td style="text-align:right;">
+80.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+103.500
+</td>
+<td style="text-align:right;">
+93.375
+</td>
+<td style="text-align:right;">
+60.500
+</td>
+<td style="text-align:right;">
+86.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+132.750
+</td>
+<td style="text-align:right;">
+128.125
+</td>
+<td style="text-align:right;">
+94.375
+</td>
+<td style="text-align:right;">
+90.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+78.625
+</td>
+<td style="text-align:right;">
+93.875
+</td>
+<td style="text-align:right;">
+58.250
+</td>
+<td style="text-align:right;">
+74.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+81.750
+</td>
+<td style="text-align:right;">
+83.500
+</td>
+<td style="text-align:right;">
+60.375
+</td>
+<td style="text-align:right;">
+68.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+96.375
+</td>
+<td style="text-align:right;">
+124.625
+</td>
+<td style="text-align:right;">
+86.125
+</td>
+<td style="text-align:right;">
+87.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+99.500
+</td>
+<td style="text-align:right;">
+106.625
+</td>
+<td style="text-align:right;">
+89.500
+</td>
+<td style="text-align:right;">
+72.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+131.875
+</td>
+<td style="text-align:right;">
+114.625
+</td>
+<td style="text-align:right;">
+61.750
+</td>
+<td style="text-align:right;">
+69.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+113.750
+</td>
+<td style="text-align:right;">
+107.000
+</td>
+<td style="text-align:right;">
+80.000
+</td>
+<td style="text-align:right;">
+106.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+63.125
+</td>
+<td style="text-align:right;">
+61.125
+</td>
+<td style="text-align:right;">
+45.250
+</td>
+<td style="text-align:right;">
+55.87500
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-9" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p>Notice I have four names: <code>POST_L</code>, <code>POST_R</code>, <code>PRE_L</code>, <code>PRE_R</code>. See the pattern? It is actually made up of two variables which we call here <code>session</code> (<code>PRE</code>, <code>POST</code>) and <code>side</code> (<code>L</code>, <code>R</code>). Change the column names to the merged names of all the independent within-subject variables you have.</p></li>
+<li><p>Replace <code>session</code> and <code>side</code> to any given name to these two common variables.</p></li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tougher-statistics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>GLM POST_L POST_R PRE_L PRE_R</span>
+<span id="cb22-2"><a href="tougher-statistics.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>WSFACTOR<span class="ot">=</span>session <span class="dv">2</span> Polynomial side <span class="dv">2</span> Polynomial </span>
+<span id="cb22-3"><a href="tougher-statistics.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>METHOD<span class="ot">=</span><span class="fu">SSTYPE</span>(<span class="dv">3</span>)</span>
+<span id="cb22-4"><a href="tougher-statistics.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(session) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb22-5"><a href="tougher-statistics.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(side) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb22-6"><a href="tougher-statistics.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(session<span class="sc">*</span>side) <span class="fu">COMPARE</span>(session) <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb22-7"><a href="tougher-statistics.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(session<span class="sc">*</span>side) <span class="fu">COMPARE</span>(side) <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb22-8"><a href="tougher-statistics.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PRINT<span class="ot">=</span>ETASQ PARAMETER HOMOGENEITY </span>
+<span id="cb22-9"><a href="tougher-statistics.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">ALPHA</span>(.<span class="dv">05</span>)</span>
+<span id="cb22-10"><a href="tougher-statistics.html#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>WSDESIGN<span class="ot">=</span>session side session<span class="sc">*</span>side.</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-twoWithtest">6.8</a>.</p>
+</div>
+</div>
+<div id="RManovatest" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Repeated (within-between) measures ANOVA</h2>
+<p><strong>Hypothesis</strong> Do different strength training methods (<code>G</code> and <code>T</code>) result in different ankle torque changes over session (<code>PRE</code>, <code>POST</code>)?</p>
+<div id="what-your-data-needs-to-look-like-9" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+POST
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+PRE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+79.8750
+</td>
+<td style="text-align:right;">
+68.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+61.3750
+</td>
+<td style="text-align:right;">
+46.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+81.8125
+</td>
+<td style="text-align:right;">
+62.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+98.8750
+</td>
+<td style="text-align:right;">
+62.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+95.0625
+</td>
+<td style="text-align:right;">
+63.95582
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+114.5625
+</td>
+<td style="text-align:right;">
+84.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+98.5625
+</td>
+<td style="text-align:right;">
+70.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+131.3750
+</td>
+<td style="text-align:right;">
+100.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+98.6250
+</td>
+<td style="text-align:right;">
+80.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+71.8125
+</td>
+<td style="text-align:right;">
+62.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+78.8750
+</td>
+<td style="text-align:right;">
+79.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+74.8750
+</td>
+<td style="text-align:right;">
+75.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+95.9375
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+98.4375
+</td>
+<td style="text-align:right;">
+73.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+130.4375
+</td>
+<td style="text-align:right;">
+92.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+86.2500
+</td>
+<td style="text-align:right;">
+66.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+82.6250
+</td>
+<td style="text-align:right;">
+64.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+110.5000
+</td>
+<td style="text-align:right;">
+86.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+103.0625
+</td>
+<td style="text-align:right;">
+81.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:right;">
+123.2500
+</td>
+<td style="text-align:right;">
+65.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+110.3750
+</td>
+<td style="text-align:right;">
+93.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+62.1250
+</td>
+<td style="text-align:right;">
+50.56250
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-10" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p>Replace all occurrences of <code>atorq</code> with the name of your dependent variable.</p></li>
+<li><p>Replace all occurrences of <code>group</code> with the name of your between group independent variable.</p></li>
+<li><p>Replace <code>PRE</code> and <code>POST</code> with the names of your columns which contains the repeat measured variable. You can have more than two really.</p></li>
+<li><p>All the repeated measured variable actually reflect categories within a single variable, which in this context we call <code>session</code>. You can given any name to this common variable.</p></li>
+<li><p>Change this common name, in this case <code>session</code>, to the name you have chosen in (4).</p></li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tougher-statistics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>GLM PRE POST BY group</span>
+<span id="cb23-2"><a href="tougher-statistics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>WSFACTOR<span class="ot">=</span>session <span class="dv">2</span> Polynomial </span>
+<span id="cb23-3"><a href="tougher-statistics.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MEASURE<span class="ot">=</span>atorq </span>
+<span id="cb23-4"><a href="tougher-statistics.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>METHOD<span class="ot">=</span><span class="fu">SSTYPE</span>(<span class="dv">3</span>)</span>
+<span id="cb23-5"><a href="tougher-statistics.html#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>POSTHOC<span class="ot">=</span><span class="fu">group</span>(LSD T3) </span>
+<span id="cb23-6"><a href="tougher-statistics.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PLOT<span class="ot">=</span><span class="fu">PROFILE</span>(group<span class="sc">*</span>session) TYPE<span class="ot">=</span>LINE ERRORBAR<span class="ot">=</span>CI MEANREFERENCE<span class="ot">=</span>NO YAXIS<span class="ot">=</span>AUTO</span>
+<span id="cb23-7"><a href="tougher-statistics.html#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb23-8"><a href="tougher-statistics.html#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(session) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb23-9"><a href="tougher-statistics.html#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group<span class="sc">*</span>session) <span class="fu">COMPARE</span> (session)<span class="fu">ADJ</span>(LSD)</span>
+<span id="cb23-10"><a href="tougher-statistics.html#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group<span class="sc">*</span>session) <span class="fu">COMPARE</span> (group)<span class="fu">ADJ</span>(LSD)</span>
+<span id="cb23-11"><a href="tougher-statistics.html#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PRINT<span class="ot">=</span>DESCRIPTIVE ETASQ PARAMETER HOMOGENEITY </span>
+<span id="cb23-12"><a href="tougher-statistics.html#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">ALPHA</span>(.<span class="dv">05</span>)</span>
+<span id="cb23-13"><a href="tougher-statistics.html#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>WSDESIGN<span class="ot">=</span>session </span>
+<span id="cb23-14"><a href="tougher-statistics.html#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>DESIGN<span class="ot">=</span>group.</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-RManovatest">6.9</a>.</p>
+</div>
+</div>
+<div id="lmmtest" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Linear mixed model</h2>
+<p><strong>Hypothesis</strong> Do different strength training methods (<code>G</code> and <code>T</code>) result in different ankle torque changes over session (<code>PRE</code>, <code>POST</code>)?</p>
+<div id="what-your-data-needs-to-look-like-10" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> What your data needs to look like?</h3>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+subj
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+group
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+session
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+atorq
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+79.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+68.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+61.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+46.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+81.81250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+62.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+98.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+62.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+95.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+63.95582
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+114.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+84.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+98.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+70.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+131.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+100.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+98.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+80.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+71.81250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+62.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+78.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+79.75000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+74.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+75.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+95.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+80.87500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+98.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+73.56250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+130.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+92.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+86.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+66.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+82.62500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+64.18750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+110.50000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+86.93750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+103.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+81.00000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+123.25000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+65.43750
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+110.37500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+93.06250
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+POST
+</td>
+<td style="text-align:right;">
+62.12500
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:left;">
+PRE
+</td>
+<td style="text-align:right;">
+50.56250
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<a onclick="fetch(&#39;data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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&#39;).then(res =&gt; res.blob()).then(blob =&gt; {&#10;      const downloadURL = window.URL.createObjectURL(blob);&#10;      const a = document.createElement(&#39;a&#39;);&#10;      document.body.appendChild(a);&#10;      a.href = downloadURL;&#10;      a.download = &#39;data.xlsx&#39;; a.click();&#10;      window.URL.revokeObjectURL(downloadURL);&#10;      document.body.removeChild(a);&#10;    });">
+<button class="btn btn-warning" has_icon="TRUE"><i class="fa fa-save"></i> Download data</button>
+</a>
+</div>
+<div id="syntax-11" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Syntax</h3>
+<p>Arguments to care about:</p>
+<ol style="list-style-type: decimal">
+<li><p>Replace all occurrences of <code>atorq</code> with the name of your dependent variable.</p></li>
+<li><p>Replace all occurrences of <code>group</code> and <code>session</code> with the names of your independent variables, respectively.</p></li>
+<li><p>Replace all occurrences of <code>subj</code> with the name of your identifier variable - i.e. the name of the column that contains the unique patient name or number.</p></li>
+</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tougher-statistics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>MIXED atorq BY group session</span>
+<span id="cb24-2"><a href="tougher-statistics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>CRITERIA<span class="ot">=</span><span class="fu">DFMETHOD</span>(SATTERTHWAITE) <span class="fu">CIN</span>(<span class="dv">95</span>) <span class="fu">MXITER</span>(<span class="dv">100</span>) <span class="fu">MXSTEP</span>(<span class="dv">10</span>) <span class="fu">SCORING</span>(<span class="dv">1</span>) </span>
+<span id="cb24-3"><a href="tougher-statistics.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SINGULAR</span>(<span class="fl">0.000000000001</span>) <span class="fu">HCONVERGE</span>(<span class="fl">0.00000001</span>, RELATIVE) <span class="fu">LCONVERGE</span>(<span class="dv">0</span>, ABSOLUTE) <span class="fu">PCONVERGE</span>(<span class="dv">0</span>, </span>
+<span id="cb24-4"><a href="tougher-statistics.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    ABSOLUTE)</span>
+<span id="cb24-5"><a href="tougher-statistics.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>FIXED<span class="ot">=</span>group session group<span class="sc">*</span>session <span class="sc">|</span> <span class="fu">SSTYPE</span>(<span class="dv">3</span>)</span>
+<span id="cb24-6"><a href="tougher-statistics.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>METHOD<span class="ot">=</span>REML</span>
+<span id="cb24-7"><a href="tougher-statistics.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>PRINT<span class="ot">=</span>DESCRIPTIVES  SOLUTION</span>
+<span id="cb24-8"><a href="tougher-statistics.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>RANDOM<span class="ot">=</span>INTERCEPT <span class="sc">|</span> <span class="fu">SUBJECT</span>(subj) <span class="fu">COVTYPE</span>(VC) SOLUTION</span>
+<span id="cb24-9"><a href="tougher-statistics.html#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>REPEATED<span class="ot">=</span>session <span class="sc">|</span> <span class="fu">SUBJECT</span>(subj) <span class="fu">COVTYPE</span>(DIAG)</span>
+<span id="cb24-10"><a href="tougher-statistics.html#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb24-11"><a href="tougher-statistics.html#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(session) COMPARE <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb24-12"><a href="tougher-statistics.html#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group<span class="sc">*</span>session) <span class="fu">COMPARE</span>(group) <span class="fu">ADJ</span>(LSD)</span>
+<span id="cb24-13"><a href="tougher-statistics.html#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>EMMEANS<span class="ot">=</span><span class="fu">TABLES</span>(group<span class="sc">*</span>session) <span class="fu">COMPARE</span>(session) <span class="fu">ADJ</span>(LSD).</span></code></pre></div>
+<p>For reporting, please see Chapter <a href="reporting.html#report-lmmtest">6.10</a>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="simpler-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reporting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

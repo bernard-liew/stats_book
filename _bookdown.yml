@@ -1,0 +1,11 @@
+chapter_name: "Chapter "
+output_dir: docs
+# rmd_files: [
+#     "index.Rmd",
+#     "1-wrangling.Rmd",
+#     "2-exploratory.Rmd",
+#     "3-simpler_statistics.Rmd",
+#     "4-harder_statistics.Rmd",
+#     "5-reporting.Rmd"]
+# clean: [packages.bib, bookdown.bbl]
+delete_merged_file: true

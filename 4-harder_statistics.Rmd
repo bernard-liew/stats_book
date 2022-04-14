@@ -1,0 +1,275 @@
+
+```{r, echo = FALSE, include = FALSE}
+library (tidyverse)
+library (kableExtra)
+library (downloadthis)
+```
+
+
+```{r, echo = FALSE, include = FALSE}
+df2 <- rio::import ("data/df2.xlsx")
+names (df2) <- c("subj",
+                 "group",
+                 "session",
+                 "side",
+                 "set",
+                 "rep",
+                 "atorq",
+                 "awork",
+                 "apow",
+                 "ktorq",
+                 "kwork",
+                 "kpow")
+```
+
+
+# Tougher statistics
+
+## Two (or more) way between ANOVA{#twoBetwtest}
+
+**Hypothesis**  Do different strength training methods (`G` and `T`) result in different ankle torque, and is the difference dependent on supplement intake (`NO` and `YES`)?
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  mutate (supplement = ifelse (session == "PRE", "NO", "YES")) %>%
+  group_by(subj, group, supplement) %>%
+  summarize (atorq = mean (atorq)) 
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/2wayBetweenAnova_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. Replace all occurrences of `atorq` with the name of your dependent variable.
+
+2. Replace all occurrences of `group` and `supplement` with the names of your independent variables, respectively. 
+
+```{r, eval = FALSE}
+UNIANOVA atorq BY group supplement
+  /METHOD=SSTYPE(3)
+  /INTERCEPT=INCLUDE
+  /EMMEANS=TABLES(group) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(supplement) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(group*supplement) COMPARE(group) ADJ(LSD)
+  /EMMEANS=TABLES(group*supplement) COMPARE(supplement) ADJ(LSD)
+  /PRINT ETASQ PARAMETER HOMOGENEITY
+  /CRITERIA=ALPHA(.05)
+  /DESIGN=group supplement group*supplement.
+```
+
+For reporting, please see Chapter \@ref(report-twoBetwtest).
+
+## Two (or more) way within ANOVA{#twoWithtest} 
+
+**Hypothesis**  Does strength training result in an improvement over a training session (`PRE`, `POST`) in the same group of people, and is the improvement dependent upon side (`L`, `R`)? 
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  group_by(subj, session, side) %>%
+  summarize (atorq = mean (atorq)) %>%
+  pivot_wider(names_from = c("session", "side"),
+              values_from = "atorq")
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/twoWithinAnova_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. Notice I have four names: `POST_L`, `POST_R`, ` PRE_L`, `PRE_R`. See the pattern? It is actually made up of two variables which we call here `session` (`PRE`, `POST`) and `side` (`L`, `R`). Change the column names to the merged names of all the independent within-subject variables you have. 
+
+2. Replace `session` and `side` to any given name to these two common variables.
+
+
+```{r, eval = FALSE}
+GLM POST_L POST_R PRE_L PRE_R
+  /WSFACTOR=session 2 Polynomial side 2 Polynomial 
+  /METHOD=SSTYPE(3)
+  /EMMEANS=TABLES(session) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(side) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(session*side) COMPARE(session) ADJ(LSD)
+  /EMMEANS=TABLES(session*side) COMPARE(side) ADJ(LSD)
+  /PRINT=ETASQ PARAMETER HOMOGENEITY 
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=session side session*side.
+```
+
+For reporting, please see Chapter \@ref(report-twoWithtest).
+
+## Repeated (within-between) measures ANOVA{#RManovatest} 
+
+**Hypothesis** Do different strength training methods (`G` and `T`) result in different ankle torque changes over session (`PRE`, `POST`)?
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  group_by(subj, group, session) %>%
+  summarize (atorq = mean (atorq)) %>%
+  pivot_wider(names_from = "session",
+              values_from = "atorq")
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/rmAnova_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. Replace all occurrences of `atorq` with the name of your dependent variable.
+
+2. Replace all occurrences of `group` with the name of your between group independent variable. 
+
+3. Replace  `PRE` and `POST` with the names of your columns which contains the repeat measured variable. You can have more than two really.
+
+4. All the repeated measured variable actually reflect categories within a single variable, which in this context we call `session`. You can given any name to this common variable.
+
+5. Change this common name, in this case `session`, to the name you have chosen in (4).
+
+```{r, eval = FALSE}
+GLM PRE POST BY group
+  /WSFACTOR=session 2 Polynomial 
+  /MEASURE=atorq 
+  /METHOD=SSTYPE(3)
+  /POSTHOC=group(LSD T3) 
+  /PLOT=PROFILE(group*session) TYPE=LINE ERRORBAR=CI MEANREFERENCE=NO YAXIS=AUTO
+  /EMMEANS=TABLES(group) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(session) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(group*session) COMPARE (session)ADJ(LSD)
+  /EMMEANS=TABLES(group*session) COMPARE (group)ADJ(LSD)
+  /PRINT=DESCRIPTIVE ETASQ PARAMETER HOMOGENEITY 
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=session 
+  /DESIGN=group.
+```
+
+For reporting, please see Chapter \@ref(report-RManovatest).
+
+## Linear mixed model{#lmmtest} 
+
+**Hypothesis** Do different strength training methods (`G` and `T`) result in different ankle torque changes over session (`PRE`, `POST`)?
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  group_by(subj, group, session) %>%
+  summarize (atorq = mean (atorq)) 
+```
+
+```{r, echo = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/mixedModel_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. Replace all occurrences of `atorq` with the name of your dependent variable.
+
+2. Replace all occurrences of `group` and `session` with the names of your independent variables, respectively. 
+
+3. Replace all occurrences of `subj` with the name of your identifier variable - i.e. the name of the column that contains the unique patient name or number.
+
+```{r, eval = FALSE}
+MIXED atorq BY group session
+  /CRITERIA=DFMETHOD(SATTERTHWAITE) CIN(95) MXITER(100) MXSTEP(10) SCORING(1) 
+    SINGULAR(0.000000000001) HCONVERGE(0.00000001, RELATIVE) LCONVERGE(0, ABSOLUTE) PCONVERGE(0, 
+    ABSOLUTE)
+  /FIXED=group session group*session | SSTYPE(3)
+  /METHOD=REML
+  /PRINT=DESCRIPTIVES  SOLUTION
+  /RANDOM=INTERCEPT | SUBJECT(subj) COVTYPE(VC) SOLUTION
+  /REPEATED=session | SUBJECT(subj) COVTYPE(DIAG)
+  /EMMEANS=TABLES(group) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(session) COMPARE ADJ(LSD)
+  /EMMEANS=TABLES(group*session) COMPARE(group) ADJ(LSD)
+  /EMMEANS=TABLES(group*session) COMPARE(session) ADJ(LSD).
+```
+
+For reporting, please see Chapter \@ref(report-lmmtest).

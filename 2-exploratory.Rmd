@@ -1,0 +1,100 @@
+
+```{r, echo = FALSE, include = FALSE}
+library (tidyverse)
+library (kableExtra)
+library (downloadthis)
+
+```
+
+
+```{r, echo = FALSE, include = FALSE}
+df2 <- rio::import ("data/df2.xlsx")
+names (df2) <- c("subj",
+                 "group",
+                 "session",
+                 "side",
+                 "set",
+                 "rep",
+                 "atorq",
+                 "awork",
+                 "apow",
+                 "ktorq",
+                 "kwork",
+                 "kpow")
+```
+
+
+# Exploration
+
+## Descriptive statistics
+
+You want to find some summary statistics like averages, standard deviation of some variables.
+
+### What your data needs to look like?
+
+```{r, echo = FALSE, include = FALSE}
+df_sub <- df2 %>%
+  group_by(subj, group, session) %>%
+  summarize (atorq = mean (atorq))
+
+```
+
+
+```{r, echo = FALSE, include = FALSE}
+df_sub %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "500px")
+
+df_sub %>%
+  download_this(
+    output_name = "data",
+    output_extension = ".xlsx",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+```{r, eval  = FALSE, echo = FALSE, include = FALSE}
+writexl::write_xlsx(df_sub, 
+                    "data/explore_data.xlsx")
+```
+
+### Syntax
+
+Arguments to care about:
+
+1. `VARIABLES`: Change the value `atorq` to the name of your dependent variable. You can even add many variables, with a space between them.
+
+As the name suggests, I am asking SPSS to spit out the average, standard deviation, variance, range, minimum, and maximum values.
+
+```{r, eval = FALSE}
+DESCRIPTIVES VARIABLES=atorq
+  /STATISTICS=MEAN STDDEV VARIANCE RANGE MIN MAX.
+
+
+```
+
+## QQ plot
+
+You want to check for normality of distribution of a variable.
+
+### Syntax
+
+Arguments to care about:
+
+1. `/VARIABLES`: Change the value `atorq` to the name of your dependent variable. You can add as many variables one after the other, each with a spacing.
+
+```{r, eval = FALSE}
+PPLOT
+  /VARIABLES=atorq
+  /NOLOG
+  /NOSTANDARDIZE
+  /TYPE=Q-Q
+  /FRACTION=BLOM
+  /TIES=MEAN
+  /DIST=NORMAL.
+```
+
